@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "PyPowerAutomate"
+version = "1.0"
+authors = [
+    { name="Tomoaki Tani" },
+]
+description = "Library to generate Power Automate Flow, Actions, and Legacy packages"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+license = {file = "LICENSE"}
+keywords = ["PowerAutomate", "RPA"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/NTT-Security-Japan/PyPowerAutomate"
+Issues = "https://github.com/NTT-Security-Japan/PyPowerAutomate/issues"
+Blog = "https://jp.security.ntt/tech_blog"
