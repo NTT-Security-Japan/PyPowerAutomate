@@ -1,0 +1,1560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pypowerautomate.package.package API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pypowerautomate.package.package</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import List, Dict
+import uuid
+import json
+from os import makedirs, path, walk
+import shutil
+import zipfile
+import tempfile
+from random import randint
+from datetime import datetime, timezone
+from ..flow import Flow
+
+
+def get_timestamp() -&gt; str:
+    &#34;&#34;&#34;
+    Generates a timestamp in ISO 8601 format appended with a random single digit, suitable for use in file naming or logging.
+    
+    Returns:
+        str: The generated timestamp string in UTC.
+    &#34;&#34;&#34;
+    now = datetime.now(timezone.utc)
+    return now.strftime(&#34;%Y-%m-%dT%H:%M:%S.%f&#34;) + str(randint(0, 9)) + &#34;Z&#34;
+
+
+class Resource:
+    &#34;&#34;&#34;
+    Manages a single resource defined in a manifest for PowerAutomate, encapsulating various properties including type,
+    creation attributes, and dependencies among other resources.
+    &#34;&#34;&#34;
+
+    def __init__(self, type: str, suggested_creation_type: str,
+                 creation_type: str, configurable_by: str, hierarchy: str, display_name: str, icon_uri: str = None):
+        &#34;&#34;&#34;
+        Initializes a new resource with specified attributes.
+        
+        Args:
+            type (str): The type of the resource.
+            suggested_creation_type (str): Suggested method for resource creation.
+            creation_type (str): Specifies how the resource can be created.
+            configurable_by (str): Indicates who can configure the resource.
+            hierarchy (str): Hierarchical position of the resource relative to others.
+            display_name (str): Display name of the resource.
+            icon_uri (str, optional): URI to the resource&#39;s icon image.
+        &#34;&#34;&#34;
+        self.uuid = uuid.uuid4().__str__()
+        self.dependencies = []
+        self.id = None
+        self.name = None
+        self.type = type
+        self.suggested_creation_type = suggested_creation_type
+        self.creation_type = creation_type
+        self.configurable_by = configurable_by
+        self.hierarchy = hierarchy
+        self.display_name = display_name
+        self.icon_uri = icon_uri
+
+    def set_api_info(self, id: str, name: str):
+        &#34;&#34;&#34;
+        Sets the API information for the resource.
+        
+        Args:
+            id (str): The unique identifier of the API.
+            name (str): The name of the API.
+        &#34;&#34;&#34;
+        self.id = id
+        self.name = name
+
+    def set_dependencies(self, resources: List):
+        &#34;&#34;&#34;
+        Sets dependencies of this resource to other resources.
+        
+        Args:
+            resources (List[Resource]): A list of Resource instances that this resource depends on.
+        &#34;&#34;&#34;
+        for resource in resources:
+            self.dependencies.append(resource.uuid)
+        self.dependencies = list(set(self.dependencies))
+
+    def export(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Exports the resource details as a dictionary suitable for serialization.
+        
+        Returns:
+            dict: A dictionary containing all relevant details of the resource.
+        &#34;&#34;&#34;
+        d = {}
+        if self.id:
+            d[&#34;id&#34;] = self.id
+        if self.name:
+            d[&#34;name&#34;] = self.name
+        d[&#34;type&#34;] = self.type
+        d[&#34;suggestedCreationType&#34;] = self.suggested_creation_type
+        if self.creation_type:
+            d[&#34;creationType&#34;] = self.creation_type
+        details = {}
+        details[&#34;displayName&#34;] = self.display_name
+        if self.icon_uri:
+            details[&#34;iconUri&#34;] = self.icon_uri
+        d[&#34;details&#34;] = details
+        d[&#34;configurableBy&#34;] = self.configurable_by
+        d[&#34;hierarchy&#34;] = self.hierarchy
+        d[&#34;dependsOn&#34;] = self.dependencies
+        return d
+
+    def __eq__(self, __o: object) -&gt; bool:
+        &#34;&#34;&#34;
+        Compares this resource with another for equality based on UUID.
+        
+        Args:
+            __o (object): The object to compare.
+        
+        Returns:
+            bool: True if the objects are the same resource, False otherwise.
+        &#34;&#34;&#34;
+        if isinstance(__o, Resource):
+            return self.uuid == __o.uuid
+        else:
+            return False
+
+    def __hash__(self):
+        &#34;&#34;&#34;
+        Returns a hash based on the resource&#39;s UUID.
+        
+        Returns:
+            int: The hash of the resource.
+        &#34;&#34;&#34;
+        return hash(self.uuid)
+
+
+class Package:
+    &#34;&#34;&#34;
+    Manages the packaging of PowerAutomate flows into a deployable ZIP file format,
+    encapsulating all necessary components like APIs, connections, and definitions.
+    [Zip directory structure]
+    .
+    ├── Microsoft.Flow
+    │   └── flows
+    │       ├── {uuid}
+    │       │   ├── apisMap.json
+    │       │   ├── connectionsMap.json
+    │       │   └── definition.json
+    │       └── manifest.json
+    └── manifest.json
+    &#34;&#34;&#34;
+
+    def __init__(self, display_name: str, flow: Flow):
+        &#34;&#34;&#34;
+        Initializes the package with a specific flow and a display name.
+
+        Args:
+            display_name (str): The name to display for the packaged flow.
+            flow (Flow): The Flow object containing the workflow logic and configurations.
+        &#34;&#34;&#34;
+        self.display_name = display_name
+        self.__apis: List[Resource] = []
+        self.__connections: List[Resource] = []
+        self.__api_connection_map: Dict[Resource, Resource] = {}
+        self.__exist_connections: dict = {}
+
+        self.flow = flow
+        self.__set_flow_resource()
+
+    def __set_flow_resource(self):
+        &#34;&#34;&#34;
+        Initializes the primary resource for the flow within the package.
+        &#34;&#34;&#34;
+        self.__flow_resource = Resource(
+            &#34;Microsoft.Flow/flows&#34;, &#34;New&#34;, &#34;Existing, New, Update&#34;, &#34;User&#34;, &#34;Root&#34;, self.display_name)
+
+
+    def set_flow_management_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the PowerAutomate Management API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # PowerAutomate Management APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Flow Management&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1650/1.0.1650.3374/flowmanagement/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;, &#34;shared_flowmanagement&#34;)
+
+        # PowerAutomate Management Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;User&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/flowmanagement/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_flowmanagement&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_dropbox_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Dropbox API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Dropbox APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Dropbox&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;, &#34;shared_dropbox&#34;)
+
+        # Dropbox Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                              &#34;Dropbox&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_dropbox&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_teams_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Teams API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Teams APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Microsoft Teams&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;, &#34;shared_teams&#34;)
+
+        # Teams Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                              &#34;Microsoft Teams&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_teams&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_sharepoint_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Sharepoint API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # SharePoint APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;, &#34;shared_sharepointonline&#34;)
+
+        # SharePoint Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_sharepointonline&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_outlook365_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Outlook365 API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Outlook 365 APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;, &#34;shared_office365&#34;)
+
+        # Outlook 365 Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_office365&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def export_solution_manifest(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Generates the solution manifest file content for the package, detailing all included resources and metadata.
+
+        Returns:
+            dict: The manifest file content as a dictionary.
+        &#34;&#34;&#34;
+        # update flow dependencies
+        self.__flow_resource.set_dependencies(self.__apis)
+        self.__flow_resource.set_dependencies(self.__connections)
+
+        d = {}
+        d[&#34;schema&#34;] = &#34;1.0&#34;
+        details = {}
+        details[&#34;displayName&#34;] = self.display_name
+        details[&#34;description&#34;] = &#34;&#34;
+        details[&#34;createdTime&#34;] = get_timestamp()
+        details[&#34;packageTelemetryId&#34;] = uuid.uuid4().__str__()
+        details[&#34;creator&#34;] = &#34;N/A&#34;
+        details[&#34;sourceEnvironment&#34;] = &#34;&#34;
+        d[&#34;details&#34;] = details
+
+        resources = {}
+        # Define flow resource
+        resources[self.__flow_resource.uuid] = self.__flow_resource.export()
+        # Define api resources
+        for api in self.__apis:
+            resources[api.uuid] = api.export()
+        # Define connection resources
+        for con in self.__connections:
+            resources[con.uuid] = con.export()
+
+        d[&#34;resources&#34;] = resources
+        return d
+
+    def export_apis_map(self):
+        d = {}
+        for api in self.__apis:
+            d[api.name] = api.uuid
+        return d
+
+    def export_connections_map(self):
+        d = {}
+        for connection in self.__connections:
+            d[self.__api_connection_map[connection].name] = connection.uuid
+        return d
+
+    def export_package_manifest(self) -&gt; dict:
+        d = {}
+        d[&#34;packageSchemaVersion&#34;] = &#34;1.0&#34;
+        d[&#34;flowAssets&#34;] = {
+            &#34;assetPaths&#34;: [self.__flow_resource.uuid]
+        }
+        return d
+
+    def export_definition(self):
+        d = {}
+        d[&#34;name&#34;] = uuid.uuid4().__str__()
+        d[&#34;id&#34;] = &#34;/providers/Microsoft.Flow/flows/&#34; + d[&#34;name&#34;]
+        d[&#34;type&#34;] = &#34;Microsoft.Flow/flows&#34;
+        properties = {}
+        properties[&#34;apiId&#34;] = &#34;/providers/Microsoft.PowerApps/apis/shared_logicflows&#34;
+        properties[&#34;displayName&#34;] = self.display_name
+        properties[&#34;definition&#34;] = self.flow.export()
+        properties[&#34;connectionReferences&#34;] = self.__exist_connections
+        properties[&#34;flowFailureAlertSubscribed&#34;] = False
+        properties[&#34;isManaged&#34;] = False
+        d[&#34;properties&#34;] = properties
+        return d
+
+    def __write_json_file(self, path: str, content: dict):
+        with open(path, &#39;w&#39;) as f:
+            f.write(json.dumps(content))
+
+    def export_zipfile(self, output_dir: str = &#34;.&#34;) -&gt; str:
+        work_dir = tempfile.TemporaryDirectory().name
+        definition_dir = path.join(
+            work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, self.__flow_resource.uuid)
+
+        # ディレクトリ階層作成
+        makedirs(definition_dir, exist_ok=True)
+
+        # ./manifest.json
+        self.__write_json_file(
+            path.join(work_dir, &#34;manifest.json&#34;), self.export_solution_manifest())
+        # ./Microsoft.Flow/flows/manifest.json
+        self.__write_json_file(path.join(
+            work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, &#34;manifest.json&#34;), self.export_package_manifest())
+        # ./Microsoft.Flow/flows/{uuid}/definition.json
+        self.__write_json_file(
+            path.join(definition_dir, &#34;definition.json&#34;), self.export_definition())
+        # ./Microsoft.Flow/flows/{uuid}/apisMap.json
+        self.__write_json_file(
+            path.join(definition_dir, &#34;apisMap.json&#34;), self.export_apis_map())
+        # ./Microsoft.Flow/flows/{uuid}/connectionsMap.json
+        self.__write_json_file(path.join(
+            definition_dir, &#34;connectionsMap.json&#34;), self.export_connections_map())
+
+        # zipファイル作成
+        filepath = path.join(output_dir, f&#34;{self.display_name}.zip&#34;)
+        zip_file = zipfile.ZipFile(filepath, &#34;w&#34;, zipfile.ZIP_DEFLATED)
+        for root, _, files in walk(work_dir):
+            for file in files:
+                zip_file.write(path.join(root, file), path.relpath(
+                    path.join(root, file), work_dir))
+
+        zip_file.comment = b&#39;\xe2\xa0\x89\xe2\xa0\x97\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x99\xe2\xa0\x80\xe2\xa0\x83\xe2\xa0\xbd\xe2\xa0\x80\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x8d\xe2\xa0\xa7&#39;
+        zip_file.close()
+
+        # clean-up
+        shutil.rmtree(work_dir)
+        return path.abspath(filepath)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pypowerautomate.package.package.get_timestamp"><code class="name flex">
+<span>def <span class="ident">get_timestamp</span></span>(<span>) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a timestamp in ISO 8601 format appended with a random single digit, suitable for use in file naming or logging.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The generated timestamp string in UTC.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_timestamp() -&gt; str:
+    &#34;&#34;&#34;
+    Generates a timestamp in ISO 8601 format appended with a random single digit, suitable for use in file naming or logging.
+    
+    Returns:
+        str: The generated timestamp string in UTC.
+    &#34;&#34;&#34;
+    now = datetime.now(timezone.utc)
+    return now.strftime(&#34;%Y-%m-%dT%H:%M:%S.%f&#34;) + str(randint(0, 9)) + &#34;Z&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pypowerautomate.package.package.Package"><code class="flex name class">
+<span>class <span class="ident">Package</span></span>
+<span>(</span><span>display_name: str, flow: <a title="pypowerautomate.flow.flow.Flow" href="../flow/flow.html#pypowerautomate.flow.flow.Flow">Flow</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Manages the packaging of PowerAutomate flows into a deployable ZIP file format,
+encapsulating all necessary components like APIs, connections, and definitions.
+[Zip directory structure]
+.
+├── Microsoft.Flow
+│
+└── flows
+│
+├── {uuid}
+│
+│
+├── apisMap.json
+│
+│
+├── connectionsMap.json
+│
+│
+└── definition.json
+│
+└── manifest.json
+└── manifest.json</p>
+<p>Initializes the package with a specific flow and a display name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>display_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name to display for the packaged flow.</dd>
+<dt><strong><code>flow</code></strong> :&ensp;<code>Flow</code></dt>
+<dd>The Flow object containing the workflow logic and configurations.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Package:
+    &#34;&#34;&#34;
+    Manages the packaging of PowerAutomate flows into a deployable ZIP file format,
+    encapsulating all necessary components like APIs, connections, and definitions.
+    [Zip directory structure]
+    .
+    ├── Microsoft.Flow
+    │   └── flows
+    │       ├── {uuid}
+    │       │   ├── apisMap.json
+    │       │   ├── connectionsMap.json
+    │       │   └── definition.json
+    │       └── manifest.json
+    └── manifest.json
+    &#34;&#34;&#34;
+
+    def __init__(self, display_name: str, flow: Flow):
+        &#34;&#34;&#34;
+        Initializes the package with a specific flow and a display name.
+
+        Args:
+            display_name (str): The name to display for the packaged flow.
+            flow (Flow): The Flow object containing the workflow logic and configurations.
+        &#34;&#34;&#34;
+        self.display_name = display_name
+        self.__apis: List[Resource] = []
+        self.__connections: List[Resource] = []
+        self.__api_connection_map: Dict[Resource, Resource] = {}
+        self.__exist_connections: dict = {}
+
+        self.flow = flow
+        self.__set_flow_resource()
+
+    def __set_flow_resource(self):
+        &#34;&#34;&#34;
+        Initializes the primary resource for the flow within the package.
+        &#34;&#34;&#34;
+        self.__flow_resource = Resource(
+            &#34;Microsoft.Flow/flows&#34;, &#34;New&#34;, &#34;Existing, New, Update&#34;, &#34;User&#34;, &#34;Root&#34;, self.display_name)
+
+
+    def set_flow_management_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the PowerAutomate Management API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # PowerAutomate Management APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Flow Management&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1650/1.0.1650.3374/flowmanagement/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;, &#34;shared_flowmanagement&#34;)
+
+        # PowerAutomate Management Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;User&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/flowmanagement/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_flowmanagement&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_dropbox_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Dropbox API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Dropbox APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Dropbox&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;, &#34;shared_dropbox&#34;)
+
+        # Dropbox Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                              &#34;Dropbox&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_dropbox&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_teams_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Teams API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Teams APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Microsoft Teams&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;, &#34;shared_teams&#34;)
+
+        # Teams Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                              &#34;Microsoft Teams&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_teams&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_sharepoint_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Sharepoint API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # SharePoint APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;, &#34;shared_sharepointonline&#34;)
+
+        # SharePoint Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_sharepointonline&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def set_outlook365_connector(self, connection_name: str = None):
+        &#34;&#34;&#34;
+        Sets up a connector for the Outlook365 API with optional connection naming.
+
+        Args:
+            connection_name (str, optional): The name to assign to the connection if it already exists.
+        &#34;&#34;&#34;
+        # Outlook 365 APIの設定
+        api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                       &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+        api.set_api_info(
+            &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;, &#34;shared_office365&#34;)
+
+        # Outlook 365 Connectionの設定
+        connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                              &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+
+        # Connectionの依存APIの設定
+        connection.set_dependencies([api])
+
+        # 既存のconenction情報の設定
+        if connection_name:
+            self.__exist_connections[&#34;shared_office365&#34;] = {
+                &#34;connectionName&#34;: connection_name,
+                &#34;source&#34;: &#34;Invoker&#34;,
+                &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;,
+                &#34;tier&#34;: &#34;NotSpecified&#34;
+            }
+        self.__apis.append(api)
+        self.__connections.append(connection)
+        self.__api_connection_map[connection] = api
+
+    def export_solution_manifest(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Generates the solution manifest file content for the package, detailing all included resources and metadata.
+
+        Returns:
+            dict: The manifest file content as a dictionary.
+        &#34;&#34;&#34;
+        # update flow dependencies
+        self.__flow_resource.set_dependencies(self.__apis)
+        self.__flow_resource.set_dependencies(self.__connections)
+
+        d = {}
+        d[&#34;schema&#34;] = &#34;1.0&#34;
+        details = {}
+        details[&#34;displayName&#34;] = self.display_name
+        details[&#34;description&#34;] = &#34;&#34;
+        details[&#34;createdTime&#34;] = get_timestamp()
+        details[&#34;packageTelemetryId&#34;] = uuid.uuid4().__str__()
+        details[&#34;creator&#34;] = &#34;N/A&#34;
+        details[&#34;sourceEnvironment&#34;] = &#34;&#34;
+        d[&#34;details&#34;] = details
+
+        resources = {}
+        # Define flow resource
+        resources[self.__flow_resource.uuid] = self.__flow_resource.export()
+        # Define api resources
+        for api in self.__apis:
+            resources[api.uuid] = api.export()
+        # Define connection resources
+        for con in self.__connections:
+            resources[con.uuid] = con.export()
+
+        d[&#34;resources&#34;] = resources
+        return d
+
+    def export_apis_map(self):
+        d = {}
+        for api in self.__apis:
+            d[api.name] = api.uuid
+        return d
+
+    def export_connections_map(self):
+        d = {}
+        for connection in self.__connections:
+            d[self.__api_connection_map[connection].name] = connection.uuid
+        return d
+
+    def export_package_manifest(self) -&gt; dict:
+        d = {}
+        d[&#34;packageSchemaVersion&#34;] = &#34;1.0&#34;
+        d[&#34;flowAssets&#34;] = {
+            &#34;assetPaths&#34;: [self.__flow_resource.uuid]
+        }
+        return d
+
+    def export_definition(self):
+        d = {}
+        d[&#34;name&#34;] = uuid.uuid4().__str__()
+        d[&#34;id&#34;] = &#34;/providers/Microsoft.Flow/flows/&#34; + d[&#34;name&#34;]
+        d[&#34;type&#34;] = &#34;Microsoft.Flow/flows&#34;
+        properties = {}
+        properties[&#34;apiId&#34;] = &#34;/providers/Microsoft.PowerApps/apis/shared_logicflows&#34;
+        properties[&#34;displayName&#34;] = self.display_name
+        properties[&#34;definition&#34;] = self.flow.export()
+        properties[&#34;connectionReferences&#34;] = self.__exist_connections
+        properties[&#34;flowFailureAlertSubscribed&#34;] = False
+        properties[&#34;isManaged&#34;] = False
+        d[&#34;properties&#34;] = properties
+        return d
+
+    def __write_json_file(self, path: str, content: dict):
+        with open(path, &#39;w&#39;) as f:
+            f.write(json.dumps(content))
+
+    def export_zipfile(self, output_dir: str = &#34;.&#34;) -&gt; str:
+        work_dir = tempfile.TemporaryDirectory().name
+        definition_dir = path.join(
+            work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, self.__flow_resource.uuid)
+
+        # ディレクトリ階層作成
+        makedirs(definition_dir, exist_ok=True)
+
+        # ./manifest.json
+        self.__write_json_file(
+            path.join(work_dir, &#34;manifest.json&#34;), self.export_solution_manifest())
+        # ./Microsoft.Flow/flows/manifest.json
+        self.__write_json_file(path.join(
+            work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, &#34;manifest.json&#34;), self.export_package_manifest())
+        # ./Microsoft.Flow/flows/{uuid}/definition.json
+        self.__write_json_file(
+            path.join(definition_dir, &#34;definition.json&#34;), self.export_definition())
+        # ./Microsoft.Flow/flows/{uuid}/apisMap.json
+        self.__write_json_file(
+            path.join(definition_dir, &#34;apisMap.json&#34;), self.export_apis_map())
+        # ./Microsoft.Flow/flows/{uuid}/connectionsMap.json
+        self.__write_json_file(path.join(
+            definition_dir, &#34;connectionsMap.json&#34;), self.export_connections_map())
+
+        # zipファイル作成
+        filepath = path.join(output_dir, f&#34;{self.display_name}.zip&#34;)
+        zip_file = zipfile.ZipFile(filepath, &#34;w&#34;, zipfile.ZIP_DEFLATED)
+        for root, _, files in walk(work_dir):
+            for file in files:
+                zip_file.write(path.join(root, file), path.relpath(
+                    path.join(root, file), work_dir))
+
+        zip_file.comment = b&#39;\xe2\xa0\x89\xe2\xa0\x97\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x99\xe2\xa0\x80\xe2\xa0\x83\xe2\xa0\xbd\xe2\xa0\x80\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x8d\xe2\xa0\xa7&#39;
+        zip_file.close()
+
+        # clean-up
+        shutil.rmtree(work_dir)
+        return path.abspath(filepath)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.package.package.Package.export_apis_map"><code class="name flex">
+<span>def <span class="ident">export_apis_map</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_apis_map(self):
+    d = {}
+    for api in self.__apis:
+        d[api.name] = api.uuid
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.export_connections_map"><code class="name flex">
+<span>def <span class="ident">export_connections_map</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_connections_map(self):
+    d = {}
+    for connection in self.__connections:
+        d[self.__api_connection_map[connection].name] = connection.uuid
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.export_definition"><code class="name flex">
+<span>def <span class="ident">export_definition</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_definition(self):
+    d = {}
+    d[&#34;name&#34;] = uuid.uuid4().__str__()
+    d[&#34;id&#34;] = &#34;/providers/Microsoft.Flow/flows/&#34; + d[&#34;name&#34;]
+    d[&#34;type&#34;] = &#34;Microsoft.Flow/flows&#34;
+    properties = {}
+    properties[&#34;apiId&#34;] = &#34;/providers/Microsoft.PowerApps/apis/shared_logicflows&#34;
+    properties[&#34;displayName&#34;] = self.display_name
+    properties[&#34;definition&#34;] = self.flow.export()
+    properties[&#34;connectionReferences&#34;] = self.__exist_connections
+    properties[&#34;flowFailureAlertSubscribed&#34;] = False
+    properties[&#34;isManaged&#34;] = False
+    d[&#34;properties&#34;] = properties
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.export_package_manifest"><code class="name flex">
+<span>def <span class="ident">export_package_manifest</span></span>(<span>self) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_package_manifest(self) -&gt; dict:
+    d = {}
+    d[&#34;packageSchemaVersion&#34;] = &#34;1.0&#34;
+    d[&#34;flowAssets&#34;] = {
+        &#34;assetPaths&#34;: [self.__flow_resource.uuid]
+    }
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.export_solution_manifest"><code class="name flex">
+<span>def <span class="ident">export_solution_manifest</span></span>(<span>self) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates the solution manifest file content for the package, detailing all included resources and metadata.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The manifest file content as a dictionary.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_solution_manifest(self) -&gt; dict:
+    &#34;&#34;&#34;
+    Generates the solution manifest file content for the package, detailing all included resources and metadata.
+
+    Returns:
+        dict: The manifest file content as a dictionary.
+    &#34;&#34;&#34;
+    # update flow dependencies
+    self.__flow_resource.set_dependencies(self.__apis)
+    self.__flow_resource.set_dependencies(self.__connections)
+
+    d = {}
+    d[&#34;schema&#34;] = &#34;1.0&#34;
+    details = {}
+    details[&#34;displayName&#34;] = self.display_name
+    details[&#34;description&#34;] = &#34;&#34;
+    details[&#34;createdTime&#34;] = get_timestamp()
+    details[&#34;packageTelemetryId&#34;] = uuid.uuid4().__str__()
+    details[&#34;creator&#34;] = &#34;N/A&#34;
+    details[&#34;sourceEnvironment&#34;] = &#34;&#34;
+    d[&#34;details&#34;] = details
+
+    resources = {}
+    # Define flow resource
+    resources[self.__flow_resource.uuid] = self.__flow_resource.export()
+    # Define api resources
+    for api in self.__apis:
+        resources[api.uuid] = api.export()
+    # Define connection resources
+    for con in self.__connections:
+        resources[con.uuid] = con.export()
+
+    d[&#34;resources&#34;] = resources
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.export_zipfile"><code class="name flex">
+<span>def <span class="ident">export_zipfile</span></span>(<span>self, output_dir: str = '.') ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_zipfile(self, output_dir: str = &#34;.&#34;) -&gt; str:
+    work_dir = tempfile.TemporaryDirectory().name
+    definition_dir = path.join(
+        work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, self.__flow_resource.uuid)
+
+    # ディレクトリ階層作成
+    makedirs(definition_dir, exist_ok=True)
+
+    # ./manifest.json
+    self.__write_json_file(
+        path.join(work_dir, &#34;manifest.json&#34;), self.export_solution_manifest())
+    # ./Microsoft.Flow/flows/manifest.json
+    self.__write_json_file(path.join(
+        work_dir, &#34;Microsoft.Flow&#34;, &#34;flows&#34;, &#34;manifest.json&#34;), self.export_package_manifest())
+    # ./Microsoft.Flow/flows/{uuid}/definition.json
+    self.__write_json_file(
+        path.join(definition_dir, &#34;definition.json&#34;), self.export_definition())
+    # ./Microsoft.Flow/flows/{uuid}/apisMap.json
+    self.__write_json_file(
+        path.join(definition_dir, &#34;apisMap.json&#34;), self.export_apis_map())
+    # ./Microsoft.Flow/flows/{uuid}/connectionsMap.json
+    self.__write_json_file(path.join(
+        definition_dir, &#34;connectionsMap.json&#34;), self.export_connections_map())
+
+    # zipファイル作成
+    filepath = path.join(output_dir, f&#34;{self.display_name}.zip&#34;)
+    zip_file = zipfile.ZipFile(filepath, &#34;w&#34;, zipfile.ZIP_DEFLATED)
+    for root, _, files in walk(work_dir):
+        for file in files:
+            zip_file.write(path.join(root, file), path.relpath(
+                path.join(root, file), work_dir))
+
+    zip_file.comment = b&#39;\xe2\xa0\x89\xe2\xa0\x97\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x99\xe2\xa0\x80\xe2\xa0\x83\xe2\xa0\xbd\xe2\xa0\x80\xe2\xa0\x9e\xe2\xa0\x91\xe2\xa0\x81\xe2\xa0\x8d\xe2\xa0\xa7&#39;
+    zip_file.close()
+
+    # clean-up
+    shutil.rmtree(work_dir)
+    return path.abspath(filepath)</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.set_dropbox_connector"><code class="name flex">
+<span>def <span class="ident">set_dropbox_connector</span></span>(<span>self, connection_name: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up a connector for the Dropbox API with optional connection naming.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connection_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name to assign to the connection if it already exists.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dropbox_connector(self, connection_name: str = None):
+    &#34;&#34;&#34;
+    Sets up a connector for the Dropbox API with optional connection naming.
+
+    Args:
+        connection_name (str, optional): The name to assign to the connection if it already exists.
+    &#34;&#34;&#34;
+    # Dropbox APIの設定
+    api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Dropbox&#34;,
+                   &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+    api.set_api_info(
+        &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;, &#34;shared_dropbox&#34;)
+
+    # Dropbox Connectionの設定
+    connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                          &#34;Dropbox&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/dropbox/icon.png&#34;)
+
+    # Connectionの依存APIの設定
+    connection.set_dependencies([api])
+
+    # 既存のconenction情報の設定
+    if connection_name:
+        self.__exist_connections[&#34;shared_dropbox&#34;] = {
+            &#34;connectionName&#34;: connection_name,
+            &#34;source&#34;: &#34;Invoker&#34;,
+            &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_dropbox&#34;,
+            &#34;tier&#34;: &#34;NotSpecified&#34;
+        }
+    self.__apis.append(api)
+    self.__connections.append(connection)
+    self.__api_connection_map[connection] = api</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.set_flow_management_connector"><code class="name flex">
+<span>def <span class="ident">set_flow_management_connector</span></span>(<span>self, connection_name: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up a connector for the PowerAutomate Management API with optional connection naming.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connection_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name to assign to the connection if it already exists.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_flow_management_connector(self, connection_name: str = None):
+    &#34;&#34;&#34;
+    Sets up a connector for the PowerAutomate Management API with optional connection naming.
+
+    Args:
+        connection_name (str, optional): The name to assign to the connection if it already exists.
+    &#34;&#34;&#34;
+    # PowerAutomate Management APIの設定
+    api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Flow Management&#34;,
+                   &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1650/1.0.1650.3374/flowmanagement/icon.png&#34;)
+    api.set_api_info(
+        &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;, &#34;shared_flowmanagement&#34;)
+
+    # PowerAutomate Management Connectionの設定
+    connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;User&#34;,
+                          &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/flowmanagement/icon.png&#34;)
+
+    # Connectionの依存APIの設定
+    connection.set_dependencies([api])
+
+    # 既存のconenction情報の設定
+    if connection_name:
+        self.__exist_connections[&#34;shared_flowmanagement&#34;] = {
+            &#34;connectionName&#34;: connection_name,
+            &#34;source&#34;: &#34;Invoker&#34;,
+            &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_flowmanagement&#34;,
+            &#34;tier&#34;: &#34;NotSpecified&#34;
+        }
+    self.__apis.append(api)
+    self.__connections.append(connection)
+    self.__api_connection_map[connection] = api</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.set_outlook365_connector"><code class="name flex">
+<span>def <span class="ident">set_outlook365_connector</span></span>(<span>self, connection_name: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up a connector for the Outlook365 API with optional connection naming.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connection_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name to assign to the connection if it already exists.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_outlook365_connector(self, connection_name: str = None):
+    &#34;&#34;&#34;
+    Sets up a connector for the Outlook365 API with optional connection naming.
+
+    Args:
+        connection_name (str, optional): The name to assign to the connection if it already exists.
+    &#34;&#34;&#34;
+    # Outlook 365 APIの設定
+    api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                   &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+    api.set_api_info(
+        &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;, &#34;shared_office365&#34;)
+
+    # Outlook 365 Connectionの設定
+    connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;Office 365 Outlook&#34;,
+                          &#34;https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png&#34;)
+
+    # Connectionの依存APIの設定
+    connection.set_dependencies([api])
+
+    # 既存のconenction情報の設定
+    if connection_name:
+        self.__exist_connections[&#34;shared_office365&#34;] = {
+            &#34;connectionName&#34;: connection_name,
+            &#34;source&#34;: &#34;Invoker&#34;,
+            &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_office365&#34;,
+            &#34;tier&#34;: &#34;NotSpecified&#34;
+        }
+    self.__apis.append(api)
+    self.__connections.append(connection)
+    self.__api_connection_map[connection] = api</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.set_sharepoint_connector"><code class="name flex">
+<span>def <span class="ident">set_sharepoint_connector</span></span>(<span>self, connection_name: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up a connector for the Sharepoint API with optional connection naming.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connection_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name to assign to the connection if it already exists.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_sharepoint_connector(self, connection_name: str = None):
+    &#34;&#34;&#34;
+    Sets up a connector for the Sharepoint API with optional connection naming.
+
+    Args:
+        connection_name (str, optional): The name to assign to the connection if it already exists.
+    &#34;&#34;&#34;
+    # SharePoint APIの設定
+    api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                   &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+    api.set_api_info(
+        &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;, &#34;shared_sharepointonline&#34;)
+
+    # SharePoint Connectionの設定
+    connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;, &#34;SharePoint&#34;,
+                          &#34;https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png&#34;)
+
+    # Connectionの依存APIの設定
+    connection.set_dependencies([api])
+
+    # 既存のconenction情報の設定
+    if connection_name:
+        self.__exist_connections[&#34;shared_sharepointonline&#34;] = {
+            &#34;connectionName&#34;: connection_name,
+            &#34;source&#34;: &#34;Invoker&#34;,
+            &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+            &#34;tier&#34;: &#34;NotSpecified&#34;
+        }
+    self.__apis.append(api)
+    self.__connections.append(connection)
+    self.__api_connection_map[connection] = api</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Package.set_teams_connector"><code class="name flex">
+<span>def <span class="ident">set_teams_connector</span></span>(<span>self, connection_name: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up a connector for the Teams API with optional connection naming.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connection_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name to assign to the connection if it already exists.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_teams_connector(self, connection_name: str = None):
+    &#34;&#34;&#34;
+    Sets up a connector for the Teams API with optional connection naming.
+
+    Args:
+        connection_name (str, optional): The name to assign to the connection if it already exists.
+    &#34;&#34;&#34;
+    # Teams APIの設定
+    api = Resource(&#34;Microsoft.PowerApps/apis&#34;, &#34;Existing&#34;, None, &#34;System&#34;, &#34;Child&#34;, &#34;Microsoft Teams&#34;,
+                   &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+    api.set_api_info(
+        &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;, &#34;shared_teams&#34;)
+
+    # Teams Connectionの設定
+    connection = Resource(&#34;Microsoft.PowerApps/apis/connections&#34;, &#34;Existing&#34;, &#34;Existing&#34;, &#34;User&#34;, &#34;Child&#34;,
+                          &#34;Microsoft Teams&#34;, &#34;https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png&#34;)
+
+    # Connectionの依存APIの設定
+    connection.set_dependencies([api])
+
+    # 既存のconenction情報の設定
+    if connection_name:
+        self.__exist_connections[&#34;shared_teams&#34;] = {
+            &#34;connectionName&#34;: connection_name,
+            &#34;source&#34;: &#34;Invoker&#34;,
+            &#34;id&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_teams&#34;,
+            &#34;tier&#34;: &#34;NotSpecified&#34;
+        }
+    self.__apis.append(api)
+    self.__connections.append(connection)
+    self.__api_connection_map[connection] = api</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pypowerautomate.package.package.Resource"><code class="flex name class">
+<span>class <span class="ident">Resource</span></span>
+<span>(</span><span>type: str, suggested_creation_type: str, creation_type: str, configurable_by: str, hierarchy: str, display_name: str, icon_uri: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Manages a single resource defined in a manifest for PowerAutomate, encapsulating various properties including type,
+creation attributes, and dependencies among other resources.</p>
+<p>Initializes a new resource with specified attributes.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the resource.</dd>
+<dt><strong><code>suggested_creation_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Suggested method for resource creation.</dd>
+<dt><strong><code>creation_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Specifies how the resource can be created.</dd>
+<dt><strong><code>configurable_by</code></strong> :&ensp;<code>str</code></dt>
+<dd>Indicates who can configure the resource.</dd>
+<dt><strong><code>hierarchy</code></strong> :&ensp;<code>str</code></dt>
+<dd>Hierarchical position of the resource relative to others.</dd>
+<dt><strong><code>display_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Display name of the resource.</dd>
+<dt><strong><code>icon_uri</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>URI to the resource's icon image.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Resource:
+    &#34;&#34;&#34;
+    Manages a single resource defined in a manifest for PowerAutomate, encapsulating various properties including type,
+    creation attributes, and dependencies among other resources.
+    &#34;&#34;&#34;
+
+    def __init__(self, type: str, suggested_creation_type: str,
+                 creation_type: str, configurable_by: str, hierarchy: str, display_name: str, icon_uri: str = None):
+        &#34;&#34;&#34;
+        Initializes a new resource with specified attributes.
+        
+        Args:
+            type (str): The type of the resource.
+            suggested_creation_type (str): Suggested method for resource creation.
+            creation_type (str): Specifies how the resource can be created.
+            configurable_by (str): Indicates who can configure the resource.
+            hierarchy (str): Hierarchical position of the resource relative to others.
+            display_name (str): Display name of the resource.
+            icon_uri (str, optional): URI to the resource&#39;s icon image.
+        &#34;&#34;&#34;
+        self.uuid = uuid.uuid4().__str__()
+        self.dependencies = []
+        self.id = None
+        self.name = None
+        self.type = type
+        self.suggested_creation_type = suggested_creation_type
+        self.creation_type = creation_type
+        self.configurable_by = configurable_by
+        self.hierarchy = hierarchy
+        self.display_name = display_name
+        self.icon_uri = icon_uri
+
+    def set_api_info(self, id: str, name: str):
+        &#34;&#34;&#34;
+        Sets the API information for the resource.
+        
+        Args:
+            id (str): The unique identifier of the API.
+            name (str): The name of the API.
+        &#34;&#34;&#34;
+        self.id = id
+        self.name = name
+
+    def set_dependencies(self, resources: List):
+        &#34;&#34;&#34;
+        Sets dependencies of this resource to other resources.
+        
+        Args:
+            resources (List[Resource]): A list of Resource instances that this resource depends on.
+        &#34;&#34;&#34;
+        for resource in resources:
+            self.dependencies.append(resource.uuid)
+        self.dependencies = list(set(self.dependencies))
+
+    def export(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Exports the resource details as a dictionary suitable for serialization.
+        
+        Returns:
+            dict: A dictionary containing all relevant details of the resource.
+        &#34;&#34;&#34;
+        d = {}
+        if self.id:
+            d[&#34;id&#34;] = self.id
+        if self.name:
+            d[&#34;name&#34;] = self.name
+        d[&#34;type&#34;] = self.type
+        d[&#34;suggestedCreationType&#34;] = self.suggested_creation_type
+        if self.creation_type:
+            d[&#34;creationType&#34;] = self.creation_type
+        details = {}
+        details[&#34;displayName&#34;] = self.display_name
+        if self.icon_uri:
+            details[&#34;iconUri&#34;] = self.icon_uri
+        d[&#34;details&#34;] = details
+        d[&#34;configurableBy&#34;] = self.configurable_by
+        d[&#34;hierarchy&#34;] = self.hierarchy
+        d[&#34;dependsOn&#34;] = self.dependencies
+        return d
+
+    def __eq__(self, __o: object) -&gt; bool:
+        &#34;&#34;&#34;
+        Compares this resource with another for equality based on UUID.
+        
+        Args:
+            __o (object): The object to compare.
+        
+        Returns:
+            bool: True if the objects are the same resource, False otherwise.
+        &#34;&#34;&#34;
+        if isinstance(__o, Resource):
+            return self.uuid == __o.uuid
+        else:
+            return False
+
+    def __hash__(self):
+        &#34;&#34;&#34;
+        Returns a hash based on the resource&#39;s UUID.
+        
+        Returns:
+            int: The hash of the resource.
+        &#34;&#34;&#34;
+        return hash(self.uuid)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.package.package.Resource.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the resource details as a dictionary suitable for serialization.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing all relevant details of the resource.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; dict:
+    &#34;&#34;&#34;
+    Exports the resource details as a dictionary suitable for serialization.
+    
+    Returns:
+        dict: A dictionary containing all relevant details of the resource.
+    &#34;&#34;&#34;
+    d = {}
+    if self.id:
+        d[&#34;id&#34;] = self.id
+    if self.name:
+        d[&#34;name&#34;] = self.name
+    d[&#34;type&#34;] = self.type
+    d[&#34;suggestedCreationType&#34;] = self.suggested_creation_type
+    if self.creation_type:
+        d[&#34;creationType&#34;] = self.creation_type
+    details = {}
+    details[&#34;displayName&#34;] = self.display_name
+    if self.icon_uri:
+        details[&#34;iconUri&#34;] = self.icon_uri
+    d[&#34;details&#34;] = details
+    d[&#34;configurableBy&#34;] = self.configurable_by
+    d[&#34;hierarchy&#34;] = self.hierarchy
+    d[&#34;dependsOn&#34;] = self.dependencies
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Resource.set_api_info"><code class="name flex">
+<span>def <span class="ident">set_api_info</span></span>(<span>self, id: str, name: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the API information for the resource.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id</code></strong> :&ensp;<code>str</code></dt>
+<dd>The unique identifier of the API.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the API.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_api_info(self, id: str, name: str):
+    &#34;&#34;&#34;
+    Sets the API information for the resource.
+    
+    Args:
+        id (str): The unique identifier of the API.
+        name (str): The name of the API.
+    &#34;&#34;&#34;
+    self.id = id
+    self.name = name</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.package.package.Resource.set_dependencies"><code class="name flex">
+<span>def <span class="ident">set_dependencies</span></span>(<span>self, resources: List)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets dependencies of this resource to other resources.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>resources</code></strong> :&ensp;<code>List[<a title="pypowerautomate.package.package.Resource" href="#pypowerautomate.package.package.Resource">Resource</a>]</code></dt>
+<dd>A list of Resource instances that this resource depends on.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dependencies(self, resources: List):
+    &#34;&#34;&#34;
+    Sets dependencies of this resource to other resources.
+    
+    Args:
+        resources (List[Resource]): A list of Resource instances that this resource depends on.
+    &#34;&#34;&#34;
+    for resource in resources:
+        self.dependencies.append(resource.uuid)
+    self.dependencies = list(set(self.dependencies))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pypowerautomate.package" href="index.html">pypowerautomate.package</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pypowerautomate.package.package.get_timestamp" href="#pypowerautomate.package.package.get_timestamp">get_timestamp</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pypowerautomate.package.package.Package" href="#pypowerautomate.package.package.Package">Package</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.package.package.Package.export_apis_map" href="#pypowerautomate.package.package.Package.export_apis_map">export_apis_map</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.export_connections_map" href="#pypowerautomate.package.package.Package.export_connections_map">export_connections_map</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.export_definition" href="#pypowerautomate.package.package.Package.export_definition">export_definition</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.export_package_manifest" href="#pypowerautomate.package.package.Package.export_package_manifest">export_package_manifest</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.export_solution_manifest" href="#pypowerautomate.package.package.Package.export_solution_manifest">export_solution_manifest</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.export_zipfile" href="#pypowerautomate.package.package.Package.export_zipfile">export_zipfile</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.set_dropbox_connector" href="#pypowerautomate.package.package.Package.set_dropbox_connector">set_dropbox_connector</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.set_flow_management_connector" href="#pypowerautomate.package.package.Package.set_flow_management_connector">set_flow_management_connector</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.set_outlook365_connector" href="#pypowerautomate.package.package.Package.set_outlook365_connector">set_outlook365_connector</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.set_sharepoint_connector" href="#pypowerautomate.package.package.Package.set_sharepoint_connector">set_sharepoint_connector</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Package.set_teams_connector" href="#pypowerautomate.package.package.Package.set_teams_connector">set_teams_connector</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.package.package.Resource" href="#pypowerautomate.package.package.Resource">Resource</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.package.package.Resource.export" href="#pypowerautomate.package.package.Resource.export">export</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Resource.set_api_info" href="#pypowerautomate.package.package.Resource.set_api_info">set_api_info</a></code></li>
+<li><code><a title="pypowerautomate.package.package.Resource.set_dependencies" href="#pypowerautomate.package.package.Resource.set_dependencies">set_dependencies</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

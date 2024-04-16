@@ -1,0 +1,2819 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pypowerautomate.actions.sharepoint API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pypowerautomate.actions.sharepoint</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Dict
+from .base import BaseAction
+
+
+class SharepointCopyFileAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CopyFileAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFileId: str = sourceFileId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFileId&#34;] = self.sourceFileId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointCopyFileAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFileItemAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileItem&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFileItemAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetItemChangesAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetItemChanges&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int, since: str, includeDrafts: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+        self.since: str = since
+        self.includeDrafts: bool = includeDrafts
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;since&#34;] = self.since
+        parameters[&#34;includeDrafts&#34;] = self.includeDrafts
+
+        inputs[&#34;host&#34;] = SharepointGetItemChangesAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGrantAccessAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GrantAccess&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int, recipients: str, roleValue: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+        self.recipients: str = recipients
+        self.roleValue: str = roleValue
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;parameter/recipients&#34;] = self.recipients
+        parameters[&#34;parameter/roleValue&#34;] = self.roleValue
+
+        inputs[&#34;host&#34;] = SharepointGrantAccessAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointMoveFileAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;MoveFileAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFileId: str = sourceFileId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFileId&#34;] = self.sourceFileId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointMoveFileAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointCreateFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CreateFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, folderPath: str, filename: str, body: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.folderPath: str = folderPath
+        self.filename: str = filename
+        self.body: str = body
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;folderPath&#34;] = self.folderPath
+        parameters[&#34;name&#34;] = self.filename
+        parameters[&#34;body&#34;] = self.body
+
+        inputs[&#34;host&#34;] = SharepointCreateFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointCopyFolderAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CopyFolderAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFolderId: str = sourceFolderId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFolderId&#34;] = self.sourceFolderId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointCopyFolderAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointMoveFolderAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;MoveFolderAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFolderId: str = sourceFolderId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFolderId&#34;] = self.sourceFolderId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointMoveFolderAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointListFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ListFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointListFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointCreateNewFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CreateNewFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, path: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.path: str = path
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;parameters/path&#34;] = self.path
+
+        inputs[&#34;host&#34;] = SharepointCreateNewFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFileContentByPathAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileContentByPath&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, path: str, inferContentType: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.path: str = path
+        self.inferContentType: bool = inferContentType
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;path&#34;] = self.path
+        parameters[&#34;inferContentType&#34;] = self.inferContentType
+
+        inputs[&#34;host&#34;] = SharepointGetFileContentByPathAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFileMetadataByPathAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileMetadataByPath&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, path: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.path: str = path
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;path&#34;] = self.path
+
+        inputs[&#34;host&#34;] = SharepointGetFileMetadataByPathAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFileContentAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileContent&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str, inferContentType: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+        self.inferContentType: bool = inferContentType
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;inferContentType&#34;] = self.inferContentType
+
+        inputs[&#34;host&#34;] = SharepointGetFileContentAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFileMetadataAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileMetadata&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFileMetadataAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointUpdateFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;UpdateFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str, body: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+        self.body: str = body
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;body&#34;] = self.body
+
+        inputs[&#34;host&#34;] = SharepointUpdateFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointDeleteFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;DeleteFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointDeleteFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetFolderMetadataAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFolderMetadata&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFolderMetadataAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointGetTablesAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetTables&#34;
+    }
+
+    def __init__(self, name: str, dataset: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+
+        inputs[&#34;host&#34;] = SharepointGetTablesAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointListRootFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ListRootFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+
+        inputs[&#34;host&#34;] = SharepointListRootFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointExtractFolderV2Action(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ExtractFolderV2&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, source: str, destination: str, overwrite: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.source: str = source
+        self.destination: str = destination
+        self.overwrite: bool = overwrite
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;source&#34;] = self.source
+        parameters[&#34;destination&#34;] = self.destination
+        parameters[&#34;overwrite&#34;] = self.overwrite
+
+        inputs[&#34;host&#34;] = SharepointExtractFolderV2Action.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointXxxxxxAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;xxxxxx&#34;
+    }
+
+    def __init__(self, name: str, xxxxxx: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.xxxxxx: str = xxxxxx
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;xxxxxx&#34;] = self.xxxxxx
+
+        inputs[&#34;host&#34;] = SharepointXxxxxxAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d
+
+
+class SharepointXxxxxxAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;xxxxxx&#34;
+    }
+
+    def __init__(self, name: str, xxxxxx: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.xxxxxx: str = xxxxxx
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;xxxxxx&#34;] = self.xxxxxx
+
+        inputs[&#34;host&#34;] = SharepointXxxxxxAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction"><code class="flex name class">
+<span>class <span class="ident">SharepointCopyFileAsyncAction</span></span>
+<span>(</span><span>name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointCopyFileAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CopyFileAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFileId: str = sourceFileId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFileId&#34;] = self.sourceFileId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointCopyFileAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction"><code class="flex name class">
+<span>class <span class="ident">SharepointCopyFolderAsyncAction</span></span>
+<span>(</span><span>name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointCopyFolderAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CopyFolderAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFolderId: str = sourceFolderId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFolderId&#34;] = self.sourceFolderId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointCopyFolderAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCreateFileAction"><code class="flex name class">
+<span>class <span class="ident">SharepointCreateFileAction</span></span>
+<span>(</span><span>name: str, dataset: str, folderPath: str, filename: str, body: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointCreateFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CreateFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, folderPath: str, filename: str, body: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.folderPath: str = folderPath
+        self.filename: str = filename
+        self.body: str = body
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;folderPath&#34;] = self.folderPath
+        parameters[&#34;name&#34;] = self.filename
+        parameters[&#34;body&#34;] = self.body
+
+        inputs[&#34;host&#34;] = SharepointCreateFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCreateFileAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction"><code class="flex name class">
+<span>class <span class="ident">SharepointCreateNewFolderAction</span></span>
+<span>(</span><span>name: str, dataset: str, table: str, path: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointCreateNewFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;CreateNewFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, path: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.path: str = path
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;parameters/path&#34;] = self.path
+
+        inputs[&#34;host&#34;] = SharepointCreateNewFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointDeleteFileAction"><code class="flex name class">
+<span>class <span class="ident">SharepointDeleteFileAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointDeleteFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;DeleteFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointDeleteFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointDeleteFileAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action"><code class="flex name class">
+<span>class <span class="ident">SharepointExtractFolderV2Action</span></span>
+<span>(</span><span>name: str, dataset: str, source: str, destination: str, overwrite: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointExtractFolderV2Action(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ExtractFolderV2&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, source: str, destination: str, overwrite: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.source: str = source
+        self.destination: str = destination
+        self.overwrite: bool = overwrite
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;source&#34;] = self.source
+        parameters[&#34;destination&#34;] = self.destination
+        parameters[&#34;overwrite&#34;] = self.overwrite
+
+        inputs[&#34;host&#34;] = SharepointExtractFolderV2Action.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileContentAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFileContentAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str, inferContentType: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFileContentAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileContent&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str, inferContentType: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+        self.inferContentType: bool = inferContentType
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;inferContentType&#34;] = self.inferContentType
+
+        inputs[&#34;host&#34;] = SharepointGetFileContentAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileContentAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFileContentByPathAction</span></span>
+<span>(</span><span>name: str, dataset: str, path: str, inferContentType: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFileContentByPathAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileContentByPath&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, path: str, inferContentType: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.path: str = path
+        self.inferContentType: bool = inferContentType
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;path&#34;] = self.path
+        parameters[&#34;inferContentType&#34;] = self.inferContentType
+
+        inputs[&#34;host&#34;] = SharepointGetFileContentByPathAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileItemAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFileItemAction</span></span>
+<span>(</span><span>name: str, dataset: str, table: str, id: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFileItemAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileItem&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFileItemAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileItemAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFileMetadataAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFileMetadataAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileMetadata&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFileMetadataAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFileMetadataByPathAction</span></span>
+<span>(</span><span>name: str, dataset: str, path: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFileMetadataByPathAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFileMetadataByPath&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, path: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.path: str = path
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;path&#34;] = self.path
+
+        inputs[&#34;host&#34;] = SharepointGetFileMetadataByPathAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetFolderMetadataAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetFolderMetadataAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetFolderMetadata&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointGetFolderMetadataAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetItemChangesAction</span></span>
+<span>(</span><span>name: str, dataset: str, table: str, id: int, since: str, includeDrafts: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetItemChangesAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetItemChanges&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int, since: str, includeDrafts: bool):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+        self.since: str = since
+        self.includeDrafts: bool = includeDrafts
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;since&#34;] = self.since
+        parameters[&#34;includeDrafts&#34;] = self.includeDrafts
+
+        inputs[&#34;host&#34;] = SharepointGetItemChangesAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetTablesAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGetTablesAction</span></span>
+<span>(</span><span>name: str, dataset: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGetTablesAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GetTables&#34;
+    }
+
+    def __init__(self, name: str, dataset: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+
+        inputs[&#34;host&#34;] = SharepointGetTablesAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGetTablesAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGrantAccessAction"><code class="flex name class">
+<span>class <span class="ident">SharepointGrantAccessAction</span></span>
+<span>(</span><span>name: str, dataset: str, table: str, id: int, recipients: str, roleValue: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointGrantAccessAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;GrantAccess&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, table: str, id: int, recipients: str, roleValue: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.table: str = table
+        self.id: int = id
+        self.recipients: str = recipients
+        self.roleValue: str = roleValue
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;table&#34;] = self.table
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;parameter/recipients&#34;] = self.recipients
+        parameters[&#34;parameter/roleValue&#34;] = self.roleValue
+
+        inputs[&#34;host&#34;] = SharepointGrantAccessAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointGrantAccessAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointListFolderAction"><code class="flex name class">
+<span>class <span class="ident">SharepointListFolderAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointListFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ListFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+
+        inputs[&#34;host&#34;] = SharepointListFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointListFolderAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointListRootFolderAction"><code class="flex name class">
+<span>class <span class="ident">SharepointListRootFolderAction</span></span>
+<span>(</span><span>name: str, dataset: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointListRootFolderAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;ListRootFolder&#34;
+    }
+
+    def __init__(self, name: str, dataset: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+
+        inputs[&#34;host&#34;] = SharepointListRootFolderAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointListRootFolderAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction"><code class="flex name class">
+<span>class <span class="ident">SharepointMoveFileAsyncAction</span></span>
+<span>(</span><span>name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointMoveFileAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;MoveFileAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFileId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFileId: str = sourceFileId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFileId&#34;] = self.sourceFileId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointMoveFileAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction"><code class="flex name class">
+<span>class <span class="ident">SharepointMoveFolderAsyncAction</span></span>
+<span>(</span><span>name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointMoveFolderAsyncAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;MoveFolderAsync&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, sourceFolderId: str, destinationDataset: str, destinationFolderPath: str, nameConflictBehavior: int):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.sourceFolderId: str = sourceFolderId
+        self.destinationDataset: str = destinationDataset
+        self.destinationFolderPath: str = destinationFolderPath
+        self.nameConflictBehavior: int = nameConflictBehavior
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;parameters/sourceFolderId&#34;] = self.sourceFolderId
+        parameters[&#34;parameters/destinationDataset&#34;] = self.destinationDataset
+        parameters[&#34;parameters/destinationFolderPath&#34;] = self.destinationFolderPath
+        parameters[&#34;parameters/nameConflictBehavior&#34;] = self.nameConflictBehavior
+
+        inputs[&#34;host&#34;] = SharepointMoveFolderAsyncAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointUpdateFileAction"><code class="flex name class">
+<span>class <span class="ident">SharepointUpdateFileAction</span></span>
+<span>(</span><span>name: str, dataset: str, id: str, body: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointUpdateFileAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;UpdateFile&#34;
+    }
+
+    def __init__(self, name: str, dataset: str, id: str, body: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.dataset: str = dataset
+        self.id: str = id
+        self.body: str = body
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;dataset&#34;] = self.dataset
+        parameters[&#34;id&#34;] = self.id
+        parameters[&#34;body&#34;] = self.body
+
+        inputs[&#34;host&#34;] = SharepointUpdateFileAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointUpdateFileAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.sharepoint.SharepointXxxxxxAction"><code class="flex name class">
+<span>class <span class="ident">SharepointXxxxxxAction</span></span>
+<span>(</span><span>name: str, xxxxxx: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a base class for creating action nodes in a workflow.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>action_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of the action, defined in derived classes.</dd>
+<dt><strong><code>runafter</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>A dictionary defining conditions under which this action should run after another action.</dd>
+<dt><strong><code>metadata</code></strong> :&ensp;<code>Dict</code></dt>
+<dd>Metadata associated with the action.</dd>
+<dt><strong><code>next_nodes</code></strong> :&ensp;<code>Set[BaseAction]</code></dt>
+<dd>A set of actions that follow this action.</dd>
+<dt><strong><code>have_parent_node</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Flag indicating whether this action is a child of another action.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SharepointXxxxxxAction(BaseAction):
+    connection_host = {
+        &#34;apiId&#34;: &#34;/providers/Microsoft.PowerApps/apis/shared_sharepointonline&#34;,
+        &#34;connectionName&#34;: &#34;shared_sharepointonline&#34;,
+        &#34;operationId&#34;: &#34;xxxxxx&#34;
+    }
+
+    def __init__(self, name: str, xxxxxx: str):
+        super().__init__(name)
+        self.type = &#34;OpenApiConnection&#34;
+
+        self.xxxxxx: str = xxxxxx
+
+    def export(self) -&gt; Dict:
+        inputs = {}
+        parameters = {}
+
+        parameters[&#34;xxxxxx&#34;] = self.xxxxxx
+
+        inputs[&#34;host&#34;] = SharepointXxxxxxAction.connection_host
+        inputs[&#34;parameters&#34;] = parameters
+
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;inputs&#34;] = inputs
+
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pypowerautomate.actions.sharepoint.SharepointXxxxxxAction.connection_host"><code class="name">var <span class="ident">connection_host</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.export" href="base.html#pypowerautomate.actions.base.BaseAction.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pypowerautomate.actions" href="index.html">pypowerautomate.actions</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction" href="#pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction">SharepointCopyFileAsyncAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointCopyFileAsyncAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction" href="#pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction">SharepointCopyFolderAsyncAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointCopyFolderAsyncAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointCreateFileAction" href="#pypowerautomate.actions.sharepoint.SharepointCreateFileAction">SharepointCreateFileAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointCreateFileAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointCreateFileAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction" href="#pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction">SharepointCreateNewFolderAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointCreateNewFolderAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointDeleteFileAction" href="#pypowerautomate.actions.sharepoint.SharepointDeleteFileAction">SharepointDeleteFileAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointDeleteFileAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointDeleteFileAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action" href="#pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action">SharepointExtractFolderV2Action</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointExtractFolderV2Action.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileContentAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFileContentAction">SharepointGetFileContentAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileContentAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFileContentAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction">SharepointGetFileContentByPathAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFileContentByPathAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileItemAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFileItemAction">SharepointGetFileItemAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileItemAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFileItemAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction">SharepointGetFileMetadataAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFileMetadataAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction">SharepointGetFileMetadataByPathAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFileMetadataByPathAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction" href="#pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction">SharepointGetFolderMetadataAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetFolderMetadataAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction" href="#pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction">SharepointGetItemChangesAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetItemChangesAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGetTablesAction" href="#pypowerautomate.actions.sharepoint.SharepointGetTablesAction">SharepointGetTablesAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGetTablesAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGetTablesAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointGrantAccessAction" href="#pypowerautomate.actions.sharepoint.SharepointGrantAccessAction">SharepointGrantAccessAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointGrantAccessAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointGrantAccessAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointListFolderAction" href="#pypowerautomate.actions.sharepoint.SharepointListFolderAction">SharepointListFolderAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointListFolderAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointListFolderAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointListRootFolderAction" href="#pypowerautomate.actions.sharepoint.SharepointListRootFolderAction">SharepointListRootFolderAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointListRootFolderAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointListRootFolderAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction" href="#pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction">SharepointMoveFileAsyncAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointMoveFileAsyncAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction" href="#pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction">SharepointMoveFolderAsyncAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointMoveFolderAsyncAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointUpdateFileAction" href="#pypowerautomate.actions.sharepoint.SharepointUpdateFileAction">SharepointUpdateFileAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointUpdateFileAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointUpdateFileAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.sharepoint.SharepointXxxxxxAction" href="#pypowerautomate.actions.sharepoint.SharepointXxxxxxAction">SharepointXxxxxxAction</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.sharepoint.SharepointXxxxxxAction.connection_host" href="#pypowerautomate.actions.sharepoint.SharepointXxxxxxAction.connection_host">connection_host</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

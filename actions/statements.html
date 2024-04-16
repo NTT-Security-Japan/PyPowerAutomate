@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pypowerautomate.actions.statements API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pypowerautomate.actions.statements</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Dict
+from .base import BaseAction
+from .actions import Actions, RawActions
+from .condition import Condition
+
+
+class IfStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines an If statement.
+
+    Args:
+        name (str): The name of the If statement.
+        condition (Condition): The condition to be evaluated.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, condition: Condition):
+        super().__init__(name)
+        self.type: str = &#34;If&#34;
+        self.condition: Condition = condition
+        self.true_actions: Actions = None
+        self.false_actions: Actions = None
+
+    def set_true_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed if the condition is true.
+
+        Args:
+            actions (Actions): The actions to be executed if the condition is true.
+        &#34;&#34;&#34;
+        self.true_actions = actions
+
+    def set_false_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed if the condition is false.
+
+        Args:
+            actions (Actions): The actions to be executed if the condition is false.
+        &#34;&#34;&#34;
+        self.false_actions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the If statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the If statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;expression&#34;] = self.condition.export()
+        d[&#34;actions&#34;] = self.true_actions.export()
+        d[&#34;else&#34;] = {&#34;actions&#34;: self.false_actions.export()}
+        return d
+
+
+class ForeachStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Foreach statement.
+
+    Args:
+        name (str): The name of the Foreach statement.
+        foreach (str): The variable to iterate over.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, foreach: str):
+        super().__init__(name)
+        self.type: str = &#34;Foreach&#34;
+        self.foreach: str = foreach
+        self.actions: Actions = None
+
+    def set_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed for each iteration.
+
+        Args:
+            actions (Actions): The actions to be executed for each iteration.
+        &#34;&#34;&#34;
+        self.actions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Foreach statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Foreach statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;foreach&#34;] = self.foreach
+        d[&#34;actions&#34;] = self.actions.export()
+        return d
+
+
+class ScopeStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Scope statement.
+
+    Args:
+        name (str): The name of the Scope statement.
+        actions (Actions | RawActions): The actions to be executed within the scope.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, actions: Actions | RawActions):
+        super().__init__(name)
+        self.type: str = &#34;Scope&#34;
+        self.actions: Actions | RawActions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Scope statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Scope statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;actions&#34;] = self.actions.export()
+        return d
+
+
+class DoUntilStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Do Until statement.
+
+    Args:
+        name (str): The name of the Do Until statement.
+        actions (Actions): The actions to be executed within the Do Until loop.
+        expression (str): The expression to be evaluated to determine when to stop the loop.
+        limit_count (int, optional): The maximum number of iterations to perform. Defaults to 60.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, actions: Actions, expression: str, limit_count: int = 60):
+        super().__init__(name)
+        self.type: str = &#34;Until&#34;
+        self.actions: Actions = actions
+        self.limit = {
+            &#34;count&#34;: limit_count,
+            &#34;timeout&#34;: &#34;PT1H&#34;
+        }
+        self.expression = expression
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Do Until statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Do Until statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;actions&#34;] = self.actions.export()
+        d[&#34;expression&#34;] = self.expression
+        d[&#34;limit&#34;] = self.limit
+        return d</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pypowerautomate.actions.statements.DoUntilStatement"><code class="flex name class">
+<span>class <span class="ident">DoUntilStatement</span></span>
+<span>(</span><span>name: str, actions: <a title="pypowerautomate.actions.actions.Actions" href="actions.html#pypowerautomate.actions.actions.Actions">Actions</a>, expression: str, limit_count: int = 60)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that defines a Do Until statement.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the Do Until statement.</dd>
+<dt><strong><code>actions</code></strong> :&ensp;<code>Actions</code></dt>
+<dd>The actions to be executed within the Do Until loop.</dd>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>The expression to be evaluated to determine when to stop the loop.</dd>
+<dt><strong><code>limit_count</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The maximum number of iterations to perform. Defaults to 60.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args_1">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DoUntilStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Do Until statement.
+
+    Args:
+        name (str): The name of the Do Until statement.
+        actions (Actions): The actions to be executed within the Do Until loop.
+        expression (str): The expression to be evaluated to determine when to stop the loop.
+        limit_count (int, optional): The maximum number of iterations to perform. Defaults to 60.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, actions: Actions, expression: str, limit_count: int = 60):
+        super().__init__(name)
+        self.type: str = &#34;Until&#34;
+        self.actions: Actions = actions
+        self.limit = {
+            &#34;count&#34;: limit_count,
+            &#34;timeout&#34;: &#34;PT1H&#34;
+        }
+        self.expression = expression
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Do Until statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Do Until statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;actions&#34;] = self.actions.export()
+        d[&#34;expression&#34;] = self.expression
+        d[&#34;limit&#34;] = self.limit
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.actions.statements.DoUntilStatement.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> Dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the Do Until statement as a dictionary.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict</code></dt>
+<dd>A dictionary representing the Do Until statement.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; Dict:
+    &#34;&#34;&#34;
+    Exports the Do Until statement as a dictionary.
+
+    Returns:
+        Dict: A dictionary representing the Do Until statement.
+    &#34;&#34;&#34;
+    d = {}
+    d[&#34;metadata&#34;] = self.metadata
+    d[&#34;type&#34;] = self.type
+    d[&#34;runAfter&#34;] = self.runafter
+    d[&#34;actions&#34;] = self.actions.export()
+    d[&#34;expression&#34;] = self.expression
+    d[&#34;limit&#34;] = self.limit
+    return d</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.statements.ForeachStatement"><code class="flex name class">
+<span>class <span class="ident">ForeachStatement</span></span>
+<span>(</span><span>name: str, foreach: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that defines a Foreach statement.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the Foreach statement.</dd>
+<dt><strong><code>foreach</code></strong> :&ensp;<code>str</code></dt>
+<dd>The variable to iterate over.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args_1">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ForeachStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Foreach statement.
+
+    Args:
+        name (str): The name of the Foreach statement.
+        foreach (str): The variable to iterate over.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, foreach: str):
+        super().__init__(name)
+        self.type: str = &#34;Foreach&#34;
+        self.foreach: str = foreach
+        self.actions: Actions = None
+
+    def set_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed for each iteration.
+
+        Args:
+            actions (Actions): The actions to be executed for each iteration.
+        &#34;&#34;&#34;
+        self.actions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Foreach statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Foreach statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;foreach&#34;] = self.foreach
+        d[&#34;actions&#34;] = self.actions.export()
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.actions.statements.ForeachStatement.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> Dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the Foreach statement as a dictionary.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict</code></dt>
+<dd>A dictionary representing the Foreach statement.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; Dict:
+    &#34;&#34;&#34;
+    Exports the Foreach statement as a dictionary.
+
+    Returns:
+        Dict: A dictionary representing the Foreach statement.
+    &#34;&#34;&#34;
+    d = {}
+    d[&#34;metadata&#34;] = self.metadata
+    d[&#34;type&#34;] = self.type
+    d[&#34;runAfter&#34;] = self.runafter
+    d[&#34;foreach&#34;] = self.foreach
+    d[&#34;actions&#34;] = self.actions.export()
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.statements.ForeachStatement.set_actions"><code class="name flex">
+<span>def <span class="ident">set_actions</span></span>(<span>self, actions: <a title="pypowerautomate.actions.actions.Actions" href="actions.html#pypowerautomate.actions.actions.Actions">Actions</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the actions to be executed for each iteration.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>actions</code></strong> :&ensp;<code>Actions</code></dt>
+<dd>The actions to be executed for each iteration.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_actions(self, actions: Actions):
+    &#34;&#34;&#34;
+    Sets the actions to be executed for each iteration.
+
+    Args:
+        actions (Actions): The actions to be executed for each iteration.
+    &#34;&#34;&#34;
+    self.actions = actions</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.statements.IfStatement"><code class="flex name class">
+<span>class <span class="ident">IfStatement</span></span>
+<span>(</span><span>name: str, condition: <a title="pypowerautomate.actions.condition.Condition" href="condition.html#pypowerautomate.actions.condition.Condition">Condition</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that defines an If statement.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the If statement.</dd>
+<dt><strong><code>condition</code></strong> :&ensp;<code>Condition</code></dt>
+<dd>The condition to be evaluated.</dd>
+</dl>
+<p>Initializes the BaseAction with a specific name.</p>
+<h2 id="args_1">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IfStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines an If statement.
+
+    Args:
+        name (str): The name of the If statement.
+        condition (Condition): The condition to be evaluated.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, condition: Condition):
+        super().__init__(name)
+        self.type: str = &#34;If&#34;
+        self.condition: Condition = condition
+        self.true_actions: Actions = None
+        self.false_actions: Actions = None
+
+    def set_true_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed if the condition is true.
+
+        Args:
+            actions (Actions): The actions to be executed if the condition is true.
+        &#34;&#34;&#34;
+        self.true_actions = actions
+
+    def set_false_actions(self, actions: Actions):
+        &#34;&#34;&#34;
+        Sets the actions to be executed if the condition is false.
+
+        Args:
+            actions (Actions): The actions to be executed if the condition is false.
+        &#34;&#34;&#34;
+        self.false_actions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the If statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the If statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;expression&#34;] = self.condition.export()
+        d[&#34;actions&#34;] = self.true_actions.export()
+        d[&#34;else&#34;] = {&#34;actions&#34;: self.false_actions.export()}
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.actions.statements.IfStatement.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> Dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the If statement as a dictionary.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict</code></dt>
+<dd>A dictionary representing the If statement.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; Dict:
+    &#34;&#34;&#34;
+    Exports the If statement as a dictionary.
+
+    Returns:
+        Dict: A dictionary representing the If statement.
+    &#34;&#34;&#34;
+    d = {}
+    d[&#34;metadata&#34;] = self.metadata
+    d[&#34;type&#34;] = self.type
+    d[&#34;runAfter&#34;] = self.runafter
+    d[&#34;expression&#34;] = self.condition.export()
+    d[&#34;actions&#34;] = self.true_actions.export()
+    d[&#34;else&#34;] = {&#34;actions&#34;: self.false_actions.export()}
+    return d</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.statements.IfStatement.set_false_actions"><code class="name flex">
+<span>def <span class="ident">set_false_actions</span></span>(<span>self, actions: <a title="pypowerautomate.actions.actions.Actions" href="actions.html#pypowerautomate.actions.actions.Actions">Actions</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the actions to be executed if the condition is false.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>actions</code></strong> :&ensp;<code>Actions</code></dt>
+<dd>The actions to be executed if the condition is false.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_false_actions(self, actions: Actions):
+    &#34;&#34;&#34;
+    Sets the actions to be executed if the condition is false.
+
+    Args:
+        actions (Actions): The actions to be executed if the condition is false.
+    &#34;&#34;&#34;
+    self.false_actions = actions</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.statements.IfStatement.set_true_actions"><code class="name flex">
+<span>def <span class="ident">set_true_actions</span></span>(<span>self, actions: <a title="pypowerautomate.actions.actions.Actions" href="actions.html#pypowerautomate.actions.actions.Actions">Actions</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the actions to be executed if the condition is true.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>actions</code></strong> :&ensp;<code>Actions</code></dt>
+<dd>The actions to be executed if the condition is true.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_true_actions(self, actions: Actions):
+    &#34;&#34;&#34;
+    Sets the actions to be executed if the condition is true.
+
+    Args:
+        actions (Actions): The actions to be executed if the condition is true.
+    &#34;&#34;&#34;
+    self.true_actions = actions</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pypowerautomate.actions.statements.ScopeStatement"><code class="flex name class">
+<span>class <span class="ident">ScopeStatement</span></span>
+<span>(</span><span>name: str, actions: <a title="pypowerautomate.actions.actions.Actions" href="actions.html#pypowerautomate.actions.actions.Actions">Actions</a> | <a title="pypowerautomate.actions.actions.RawActions" href="actions.html#pypowerautomate.actions.actions.RawActions">RawActions</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that defines a Scope statement.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the Scope statement.</dd>
+</dl>
+<p>actions (Actions | RawActions): The actions to be executed within the scope.
+Initializes the BaseAction with a specific name.</p>
+<h2 id="args_1">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the action.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ScopeStatement(BaseAction):
+    &#34;&#34;&#34;
+    A class that defines a Scope statement.
+
+    Args:
+        name (str): The name of the Scope statement.
+        actions (Actions | RawActions): The actions to be executed within the scope.
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, actions: Actions | RawActions):
+        super().__init__(name)
+        self.type: str = &#34;Scope&#34;
+        self.actions: Actions | RawActions = actions
+
+    def export(self) -&gt; Dict:
+        &#34;&#34;&#34;
+        Exports the Scope statement as a dictionary.
+
+        Returns:
+            Dict: A dictionary representing the Scope statement.
+        &#34;&#34;&#34;
+        d = {}
+        d[&#34;metadata&#34;] = self.metadata
+        d[&#34;type&#34;] = self.type
+        d[&#34;runAfter&#34;] = self.runafter
+        d[&#34;actions&#34;] = self.actions.export()
+        return d</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.actions.statements.ScopeStatement.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> Dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the Scope statement as a dictionary.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict</code></dt>
+<dd>A dictionary representing the Scope statement.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; Dict:
+    &#34;&#34;&#34;
+    Exports the Scope statement as a dictionary.
+
+    Returns:
+        Dict: A dictionary representing the Scope statement.
+    &#34;&#34;&#34;
+    d = {}
+    d[&#34;metadata&#34;] = self.metadata
+    d[&#34;type&#34;] = self.type
+    d[&#34;runAfter&#34;] = self.runafter
+    d[&#34;actions&#34;] = self.actions.export()
+    return d</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pypowerautomate.actions.base.BaseAction" href="base.html#pypowerautomate.actions.base.BaseAction">BaseAction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pypowerautomate.actions.base.BaseAction.add_next_action" href="base.html#pypowerautomate.actions.base.BaseAction.add_next_action">add_next_action</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.clone" href="base.html#pypowerautomate.actions.base.BaseAction.clone">clone</a></code></li>
+<li><code><a title="pypowerautomate.actions.base.BaseAction.update_runafter" href="base.html#pypowerautomate.actions.base.BaseAction.update_runafter">update_runafter</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pypowerautomate.actions" href="index.html">pypowerautomate.actions</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pypowerautomate.actions.statements.DoUntilStatement" href="#pypowerautomate.actions.statements.DoUntilStatement">DoUntilStatement</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.statements.DoUntilStatement.export" href="#pypowerautomate.actions.statements.DoUntilStatement.export">export</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.statements.ForeachStatement" href="#pypowerautomate.actions.statements.ForeachStatement">ForeachStatement</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.statements.ForeachStatement.export" href="#pypowerautomate.actions.statements.ForeachStatement.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.statements.ForeachStatement.set_actions" href="#pypowerautomate.actions.statements.ForeachStatement.set_actions">set_actions</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.statements.IfStatement" href="#pypowerautomate.actions.statements.IfStatement">IfStatement</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.statements.IfStatement.export" href="#pypowerautomate.actions.statements.IfStatement.export">export</a></code></li>
+<li><code><a title="pypowerautomate.actions.statements.IfStatement.set_false_actions" href="#pypowerautomate.actions.statements.IfStatement.set_false_actions">set_false_actions</a></code></li>
+<li><code><a title="pypowerautomate.actions.statements.IfStatement.set_true_actions" href="#pypowerautomate.actions.statements.IfStatement.set_true_actions">set_true_actions</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pypowerautomate.actions.statements.ScopeStatement" href="#pypowerautomate.actions.statements.ScopeStatement">ScopeStatement</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.statements.ScopeStatement.export" href="#pypowerautomate.actions.statements.ScopeStatement.export">export</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

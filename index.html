@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pypowerautomate API documentation</title>
+<meta name="description" content="PyPowerAutomate …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>pypowerautomate</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="pypowerautomate">PyPowerAutomate</h1>
+<p><em>PyPowerAutomate is not affiliated with Microsoft Corporation.</em></p>
+<h2 id="overview">Overview</h2>
+<p>PyPowerAutomate is a Python package designed for creating, managing, and deploying Microsoft Power Automate Flows programmatically. This library provides a simple and efficient way to define Power Automate Flows in JSON format directly from Python code. Whether you're an automation expert, a developer looking to integrate Power Automate into your Python projects, or an enthusiast exploring the realms of workflow automation, Power Automate Library is your go-to tool.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Flow Creation</strong>: Easily define and create Power Automate flows in JSON format.</li>
+<li><strong>Package Creation</strong>: Easily create a legacy package that could import to Power Automate Platform</li>
+<li><strong>Customization</strong>: Tailor your flows with dynamic parameters and custom logic.</li>
+<li><strong>Compatibility</strong>: Seamless integration with existing Power Automate infrastructure.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>To install PyPowerAutomate, run the following command in your terminal:</p>
+<pre><code class="language-bash">pip install PyPowerAutomate
+</code></pre>
+<h2 id="quick-start">Quick Start</h2>
+<p>Here's a simple example to get you started:</p>
+<pre><code class="language-python">from pypowerautomate.flow import Flow
+from pypowerautomate.triggers import ManualTrigger
+from pypowerautomate.actions import InitVariableAction,IncrementVariableAction,VariableTypes
+from pypowerautomate.package import Package
+
+flow = Flow()
+
+flow.set_trigger(ManualTrigger(&quot;Button&quot;))
+
+flow.add_top_action(InitVariableAction(&quot;action1&quot;,&quot;a&quot;,VariableTypes.integer,1))
+flow.append_action(IncrementVariableAction(&quot;action2&quot;,&quot;a&quot;,2))
+
+package = Package(&quot;incremental_test&quot;,flow)
+package.export_zipfile()
+</code></pre>
+<p>This example creates manual trigger and 2 actions. Then export the flow as lagacy package(zip file).
+You can import the flow by uploading <code>incremental_test.zip</code> to Power Automate. </p>
+<h2 id="supported-triggers">Supported Triggers</h2>
+<ul>
+<li>Manual Trigger</li>
+<li>Schedule Trigger</li>
+</ul>
+<h2 id="supported-build-in-actions">Supported Build-in Actions</h2>
+<ul>
+<li>Variable</li>
+<li>Conditionals</li>
+<li>Loops</li>
+<li>Data Operetions</li>
+<li>Time</li>
+<li>HTTP (requires Premium subscription)</li>
+</ul>
+<h2 id="supported-connectors">Supported Connectors</h2>
+<p>Currently, PyPowerAutomate supports following connectors.</p>
+<ul>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_flowmanagement/power-automate-management/">Power Automate Management</a></li>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_approvals/approvals/">Approvals</a></li>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_office365/office-365-outlook/">Office 365 Outlook</a></li>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_sharepointonline/sharepoint/">SharePoint</a></li>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_dropbox/dropbox/">Dropbox</a></li>
+<li><a href="https://powerautomate.microsoft.com/en-us/connectors/details/shared_teams/microsoft-teams/">Teams</a></li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p><a href="https://ntt-security-japan.github.io/PyPowerAutomate/">Documentation of PyPowerAutomate</a></p>
+<h2 id="contributing">Contributing</h2>
+<p>Thank you for considering contributing to this project! We welcome all contributions, from minor fixes to major features. To ensure effective and smooth collaboration, please follow these guidelines:</p>
+<h3 id="contributing-code">Contributing Code</h3>
+<ol>
+<li>
+<p>Check and Open Issues: Before contributing, please check if there are existing issues on GitHub related to your problem or suggestion. If not, open a new one and share the details.</p>
+</li>
+<li>
+<p>Pull Requests: If you want to make changes, first fork the repository, create a branch for your topic, and then submit a pull request. In your pull request, clearly explain what changes you made and why.</p>
+</li>
+<li>
+<p>Code Review: The project maintainers will review your pull request. If there are any comments, please respond to them actively.</p>
+</li>
+</ol>
+<h3 id="code-of-conduct">Code of Conduct</h3>
+<p>We aim to provide all contributors and maintainers with a safe and positive experience. Therefore, we ask you to follow this code of conduct, which is based on the Contributor Covenant:</p>
+<ul>
+<li>
+<p>Respect Each Other: Treat everyone working on the project respectfully, regardless of background.</p>
+</li>
+<li>
+<p>Promote Inclusivity: Actively promote inclusivity and welcome diverse perspectives.</p>
+</li>
+<li>
+<p>Maintain a Harassment-Free Environment: Avoid any behavior seen as harassment and maintain a harassment-free environment.</p>
+</li>
+</ul>
+<h2 id="license">License</h2>
+<p>PyPowerAutomate is licensed under the BSD-3-clause license. See <a href="https://github.com/NTT-Security-Japan/PyPowerAutomate/LICENSE">LICENSE</a> for more details.</p>
+<hr>
+<p>Happy Automating! 🚀</p>
+<hr>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+.. include:: ../../README.md
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="pypowerautomate.actions" href="actions/index.html">pypowerautomate.actions</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pypowerautomate.connections" href="connections/index.html">pypowerautomate.connections</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pypowerautomate.flow" href="flow/index.html">pypowerautomate.flow</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pypowerautomate.package" href="package/index.html">pypowerautomate.package</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pypowerautomate.triggers" href="triggers/index.html">pypowerautomate.triggers</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#pypowerautomate">PyPowerAutomate</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#supported-triggers">Supported Triggers</a></li>
+<li><a href="#supported-build-in-actions">Supported Build-in Actions</a></li>
+<li><a href="#supported-connectors">Supported Connectors</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#contributing-code">Contributing Code</a></li>
+<li><a href="#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="pypowerautomate.actions" href="actions/index.html">pypowerautomate.actions</a></code></li>
+<li><code><a title="pypowerautomate.connections" href="connections/index.html">pypowerautomate.connections</a></code></li>
+<li><code><a title="pypowerautomate.flow" href="flow/index.html">pypowerautomate.flow</a></code></li>
+<li><code><a title="pypowerautomate.package" href="package/index.html">pypowerautomate.package</a></code></li>
+<li><code><a title="pypowerautomate.triggers" href="triggers/index.html">pypowerautomate.triggers</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

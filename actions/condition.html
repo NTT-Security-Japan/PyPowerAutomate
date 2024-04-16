@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pypowerautomate.actions.condition API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pypowerautomate.actions.condition</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import re
+from typing import Dict
+
+# Define operator precedence
+precedence = {
+    &#34;==&#34;: 4,
+    &#34;!=&#34;: 4,
+    &#34;&gt;&#34;: 4,
+    &#34;&lt;&#34;: 4,
+    &#34;&gt;=&#34;: 4,
+    &#34;&lt;=&#34;: 4,
+    &#34;not&#34;: 3,
+    &#34;and&#34;: 2,
+    &#34;or&#34;: 1
+}
+
+# Define operator mapping
+operator_mapping = {
+    &#34;==&#34;: &#34;equals&#34;,
+    &#34;&gt;=&#34;: &#34;greaterOrEquals&#34;,
+    &#34;&lt;=&#34;: &#34;lessOrEquals&#34;,
+    &#34;&gt;&#34;: &#34;greater&#34;,
+    &#34;&lt;&#34;: &#34;less&#34;,
+    &#34;and&#34;: &#34;and&#34;,
+    &#34;or&#34;: &#34;or&#34;,
+    &#34;not&#34;: &#34;not&#34;,
+    &#34;!=&#34;: &#34;not_equals&#34;
+}
+
+# Define the regular expression pattern for the tokenizer
+# pattern = r&#34;&#34;&#34;
+#     &#34;(?:\\.|[^\\&#34;])*&#34;    # Match double quoted string with possible escaped double quotes
+#     |
+#     !=                  # Match &#39;!=&#39; operator
+#     |
+#     ==                  # Match &#39;==&#39; operator
+#     |
+#     &gt;=                  # Match &#39;&gt;=&#39; operator
+#     |
+#     &lt;=                  # Match &#39;&lt;=&#39; operator
+#     |
+#     [&lt;&gt;]                # Match &#39;&lt;&#39; or &#39;&gt;&#39; operator
+#     |
+#     \b(?:and|or|not|true|false)\b  # Match &#39;and&#39;, &#39;or&#39;, &#39;not&#39; keywords
+#     |
+#     \(                  # Match &#39;(&#39;
+#     |
+#     \)                  # Match &#39;)&#39;
+#     |
+#     \b\d*\.\d+\b        # Match floating point numbers
+#     |
+#     \b\d+\b             # Match integers
+#     |
+#     [a-zA-Z0-9_-]+      # Match variable names
+# &#34;&#34;&#34;
+
+# Tokenizer function
+# def tokenizer(s):
+#     return re.findall(pattern, s, re.VERBOSE)
+
+
+def tokenizer(s):
+    &#34;&#34;&#34;Tokenizes the given string into a list of tokens.
+
+    This function takes a string as input and splits it into a list of tokens based on the following rules:
+
+    - Whitespace characters (spaces) are used to split the string into tokens, except within quoted strings.
+    - Operators (!=, ==, &gt;=, &lt;=, &gt;, &lt;) are treated as separate tokens.
+    - Parentheses &#39;(&#39; and &#39;)&#39; are treated as separate tokens.
+    - Quoted strings are treated as a single token, including the quotes.
+    - Digits, decimal points, and alphanumeric characters (including &#39;-&#39; and &#39;_&#39;) are grouped into a single token.
+    - Keywords (&#39;and&#39;, &#39;or&#39;, &#39;not&#39;, &#39;true&#39;, &#39;false&#39;) are treated as separate tokens if they are followed by a non-alphanumeric character or the end of the string.
+    - Raises a ValueError if an unknown character is encountered or if a quoted string is unterminated.
+
+    Args:
+        s (str): The input string to be tokenized.
+
+    Returns:
+        list: A list of tokens extracted from the input string.
+    &#34;&#34;&#34;
+    keywords = [&#39;and&#39;, &#39;or&#39;, &#39;not&#39;, &#39;true&#39;, &#39;false&#39;]
+    operators = [&#39;!=&#39;, &#39;==&#39;, &#39;&gt;=&#39;, &#39;&lt;=&#39;, &#39;&gt;&#39;, &#39;&lt;&#39;]
+    tokens = []
+    token = &#39;&#39;
+    i = 0
+
+    while i &lt; len(s):
+        char = s[i]
+
+        if char == &#39; &#39;:
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+        elif char in operators or (i + 1 &lt; len(s) and s[i:i+2] in operators):
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            operator = s[i:i+2] if i + \
+                1 &lt; len(s) and s[i:i+2] in operators else char
+            tokens.append(operator)
+            i += len(operator) - 1
+        elif char in (&#39;(&#39;, &#39;)&#39;):
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            tokens.append(char)
+        elif char == &#39;\&#34;&#39;:
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            end_of_string = s.find(&#39;\&#34;&#39;, i + 1)
+            if end_of_string == -1:
+                raise ValueError(&#34;Unterminated string literal&#34;)
+            token = s[i:end_of_string+1]  # Include the quotes
+            tokens.append(token)
+            token = &#39;&#39;
+            i = end_of_string
+        # Digits and decimal point
+        elif char in (&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;.&#39;):
+            token += char
+        elif char.isalpha() or char in (&#39;-&#39;, &#39;_&#39;):  # Variables and boolean values
+            token += char
+            # If this token is a keyword and is followed by a non-alphanumeric character or end of string, append it
+            if token in keywords and (i + 1 == len(s) or not s[i+1].isalnum()):
+                tokens.append(token)
+                token = &#39;&#39;
+        else:
+            raise ValueError(&#34;Unknown character: &#34; + char)
+
+        i += 1
+    if token != &#39;&#39;:
+        tokens.append(token)
+
+    return tokens
+
+# Convert infix tokens to RPN using Shunting Yard algorithm
+
+
+def infix_to_rpn(tokens):
+    &#34;&#34;&#34;
+    Converts an infix expression to reverse Polish notation (RPN).
+
+    This function takes a list of tokens representing an infix expression and converts it to a list of tokens in reverse Polish notation (RPN). 
+    The conversion is done using the shunting-yard algorithm.
+
+    Args:
+        tokens (list): A list of tokens representing the infix expression.
+
+    Returns:
+        list: A list of tokens in reverse Polish notation (RPN).
+    &#34;&#34;&#34;
+    output_queue = []
+    operator_stack = []
+    for token in tokens:
+        if token in precedence:  # If token is an operator
+            while (operator_stack and operator_stack[-1] in precedence and
+                   precedence[token] &lt;= precedence[operator_stack[-1]]):
+                output_queue.append(operator_stack.pop())
+            operator_stack.append(token)
+        elif token == &#34;(&#34;:
+            operator_stack.append(token)
+        elif token == &#34;)&#34;:
+            while operator_stack and operator_stack[-1] != &#34;(&#34;:
+                output_queue.append(operator_stack.pop())
+            operator_stack.pop()  # Remove the &#39;(&#39;
+        else:  # If token is a number or a variable
+            output_queue.append(token)
+
+    while operator_stack:  # Pop remaining operators from the stack
+        output_queue.append(operator_stack.pop())
+
+    return output_queue
+
+
+# Create AST from RPN
+def create_ast(rpn_tokens):
+    &#34;&#34;&#34;
+    Constructs an abstract syntax tree (AST) from a list of tokens in reverse Polish notation (RPN).
+
+    This function takes a list of tokens in RPN and constructs an abstract syntax tree (AST) representing the expression. 
+    The AST is represented as a dictionary with the following structure:
+    - Literal: {&#39;type&#39;: &#39;Literal&#39;, &#39;value&#39;: value}
+    - BinaryExpression: {&#39;type&#39;: &#39;BinaryExpression&#39;, &#39;operator&#39;: operator, &#39;left&#39;: left_node, &#39;right&#39;: right_node}
+    - UnaryExpression: {&#39;type&#39;: &#39;UnaryExpression&#39;, &#39;operator&#39;: operator, &#39;argument&#39;: operand}
+    - LogicalExpression: {&#39;type&#39;: &#39;LogicalExpression&#39;, &#39;operator&#39;: operator, &#39;left&#39;: left_node, &#39;right&#39;: right_node}
+
+    Args:
+        rpn_tokens (list): A list of tokens in reverse Polish notation (RPN).
+
+    Returns:
+        dict: The root node of the constructed abstract syntax tree (AST).
+    &#34;&#34;&#34;
+    stack = []
+    for token in rpn_tokens:
+        # If token is a number or a variable
+        if token not in precedence and token not in [&#34;==&#34;, &#34;!=&#34;, &#34;&gt;&#34;, &#34;&lt;&#34;, &#34;&gt;=&#34;, &#34;&lt;=&#34;]:
+            stack.append({&#34;type&#34;: &#34;Literal&#34;, &#34;value&#34;: token})
+        else:  # If token is an operator
+            if token in [&#34;==&#34;, &#34;!=&#34;, &#34;&gt;&#34;, &#34;&lt;&#34;, &#34;&gt;=&#34;, &#34;&lt;=&#34;]:  # binary operators
+                right = stack.pop() if stack else None
+                left = stack.pop() if stack else None
+                if right is None or left is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operands for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;BinaryExpression&#34;,
+                             &#34;operator&#34;: token, &#34;left&#34;: left, &#34;right&#34;: right})
+            elif token == &#34;not&#34;:  # unary operator
+                operand = stack.pop() if stack else None
+                if operand is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operand for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;UnaryExpression&#34;,
+                             &#34;operator&#34;: token, &#34;argument&#34;: operand})
+            else:  # &#34;and&#34;, &#34;or&#34; binary operators
+                right = stack.pop() if stack else None
+                left = stack.pop() if stack else None
+                if right is None or left is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operands for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;LogicalExpression&#34;,
+                             &#34;operator&#34;: token, &#34;left&#34;: left, &#34;right&#34;: right})
+
+    if len(stack) != 1:
+        raise ValueError(
+            &#39;Malformed expression: the final stack contained more than one element&#39;)
+    return stack[0]  # Root of the AST
+
+
+def ast_to_dict(node):
+    &#34;&#34;&#34;
+    Converts an abstract syntax tree (AST) node to a dictionary representation.
+
+    This function takes an AST node, which is represented as a dictionary, and converts it to a dictionary representation that can be easily serialized to JSON.
+    The conversion is based on the node type:
+    - Literal: Converts the value to the appropriate data type (boolean, number, or string).
+    - UnaryExpression: Converts the operator and argument to a dictionary with the operator as the key and the argument as the value.
+    - BinaryExpression and LogicalExpression: Converts the operator and operands to a dictionary with the operator as the key and the operands as a list.
+
+    Args:
+        node (dict): The input AST node to be converted.
+
+    Returns:
+        dict: The dictionary representation of the AST node.
+    &#34;&#34;&#34;
+    node_type = node[&#34;type&#34;]
+
+    if node_type == &#34;Literal&#34;:
+        value = node[&#34;value&#34;]
+        if value == &#34;true&#34;:
+            return True
+        elif value == &#34;false&#34;:
+            return False
+        elif &#34;\&#34;&#34; in value:
+            value = value.replace(&#34;\&#34;&#34;, &#34;&#34;)
+            return value
+        try:
+            value = float(value) if &#39;.&#39; in value else int(value)
+        except ValueError:
+            value = f&#39;@variables(\&#39;{value}\&#39;)&#39;
+        return value
+    elif node_type == &#34;UnaryExpression&#34;:
+        operator = operator_mapping[node[&#34;operator&#34;]]
+        argument = ast_to_dict(node[&#34;argument&#34;])
+        return {operator: argument}
+    elif node_type in [&#34;BinaryExpression&#34;, &#34;LogicalExpression&#34;]:
+        operator = operator_mapping[node[&#34;operator&#34;]]
+        left = ast_to_dict(node[&#34;left&#34;])
+        right = ast_to_dict(node[&#34;right&#34;])
+
+        # Handle &#34;not equals&#34; operator
+        if operator == &#34;not_equals&#34;:
+            return {&#34;not&#34;: {&#34;equals&#34;: [left, right]}}
+        else:
+            return {operator: [left, right]}
+
+
+class Condition:
+    &#34;&#34;&#34;
+    A class for defining condition expressions.
+
+    This class provides a way to define condition expressions and convert them to a JSON-compatible dictionary representation.
+    The condition expression is first tokenized, then converted to reverse Polish notation (RPN), and finally an abstract syntax tree (AST) is constructed.
+    The `export()` method returns the dictionary representation of the condition expression.
+
+    Example:
+        condition = Condition(&#34;var2 == false&#34;)
+        print(condition.export())
+        # Output: {&#39;expression&#39;: {&#39;equals&#39;: [&#39;@variables(\&#39;var2\&#39;)&#39;, False]}}
+
+    Args:
+        expression (str): The condition expression to be defined.
+    &#34;&#34;&#34;
+
+    def __init__(self, expression: str) -&gt; None:
+        tokens = tokenizer(expression)
+        rpn_tokens = infix_to_rpn(tokens)
+        self.ast = create_ast(rpn_tokens)
+
+    def export(self) -&gt; Dict:
+        return ast_to_dict(self.ast)
+
+# s = &#39;(var == &#34;test&#34; and var2 != &#34;test2&#34;) or var3 &gt; 1.22 or var4 &lt; 2 or var5 &gt;= 0.123 or var6 &lt;= 6 or not var7 == 7&#39;
+# s = &#39;var == 1 or (var == &#34;test&#34; and var2 != &#34;test2&#34;) or var3 &gt; 1.22 or var4 &lt; 2 or var5 &gt;= 0.123 or var6 &lt;= 6 or not var7 == 7&#39;
+# s  = &#39;a == true or b != false&#39;
+
+# C = Condition(&#34;(aaaho31lk1j2109 == .209122 ) and (Var2221 &gt;= 10) and (false or var1 == (var02 == false))&#34;)
+# print(C.export())</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pypowerautomate.actions.condition.ast_to_dict"><code class="name flex">
+<span>def <span class="ident">ast_to_dict</span></span>(<span>node)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts an abstract syntax tree (AST) node to a dictionary representation.</p>
+<p>This function takes an AST node, which is represented as a dictionary, and converts it to a dictionary representation that can be easily serialized to JSON.
+The conversion is based on the node type:
+- Literal: Converts the value to the appropriate data type (boolean, number, or string).
+- UnaryExpression: Converts the operator and argument to a dictionary with the operator as the key and the argument as the value.
+- BinaryExpression and LogicalExpression: Converts the operator and operands to a dictionary with the operator as the key and the operands as a list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>node</code></strong> :&ensp;<code>dict</code></dt>
+<dd>The input AST node to be converted.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The dictionary representation of the AST node.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ast_to_dict(node):
+    &#34;&#34;&#34;
+    Converts an abstract syntax tree (AST) node to a dictionary representation.
+
+    This function takes an AST node, which is represented as a dictionary, and converts it to a dictionary representation that can be easily serialized to JSON.
+    The conversion is based on the node type:
+    - Literal: Converts the value to the appropriate data type (boolean, number, or string).
+    - UnaryExpression: Converts the operator and argument to a dictionary with the operator as the key and the argument as the value.
+    - BinaryExpression and LogicalExpression: Converts the operator and operands to a dictionary with the operator as the key and the operands as a list.
+
+    Args:
+        node (dict): The input AST node to be converted.
+
+    Returns:
+        dict: The dictionary representation of the AST node.
+    &#34;&#34;&#34;
+    node_type = node[&#34;type&#34;]
+
+    if node_type == &#34;Literal&#34;:
+        value = node[&#34;value&#34;]
+        if value == &#34;true&#34;:
+            return True
+        elif value == &#34;false&#34;:
+            return False
+        elif &#34;\&#34;&#34; in value:
+            value = value.replace(&#34;\&#34;&#34;, &#34;&#34;)
+            return value
+        try:
+            value = float(value) if &#39;.&#39; in value else int(value)
+        except ValueError:
+            value = f&#39;@variables(\&#39;{value}\&#39;)&#39;
+        return value
+    elif node_type == &#34;UnaryExpression&#34;:
+        operator = operator_mapping[node[&#34;operator&#34;]]
+        argument = ast_to_dict(node[&#34;argument&#34;])
+        return {operator: argument}
+    elif node_type in [&#34;BinaryExpression&#34;, &#34;LogicalExpression&#34;]:
+        operator = operator_mapping[node[&#34;operator&#34;]]
+        left = ast_to_dict(node[&#34;left&#34;])
+        right = ast_to_dict(node[&#34;right&#34;])
+
+        # Handle &#34;not equals&#34; operator
+        if operator == &#34;not_equals&#34;:
+            return {&#34;not&#34;: {&#34;equals&#34;: [left, right]}}
+        else:
+            return {operator: [left, right]}</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.condition.create_ast"><code class="name flex">
+<span>def <span class="ident">create_ast</span></span>(<span>rpn_tokens)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs an abstract syntax tree (AST) from a list of tokens in reverse Polish notation (RPN).</p>
+<p>This function takes a list of tokens in RPN and constructs an abstract syntax tree (AST) representing the expression.
+The AST is represented as a dictionary with the following structure:
+- Literal: {'type': 'Literal', 'value': value}
+- BinaryExpression: {'type': 'BinaryExpression', 'operator': operator, 'left': left_node, 'right': right_node}
+- UnaryExpression: {'type': 'UnaryExpression', 'operator': operator, 'argument': operand}
+- LogicalExpression: {'type': 'LogicalExpression', 'operator': operator, 'left': left_node, 'right': right_node}</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>rpn_tokens</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of tokens in reverse Polish notation (RPN).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The root node of the constructed abstract syntax tree (AST).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_ast(rpn_tokens):
+    &#34;&#34;&#34;
+    Constructs an abstract syntax tree (AST) from a list of tokens in reverse Polish notation (RPN).
+
+    This function takes a list of tokens in RPN and constructs an abstract syntax tree (AST) representing the expression. 
+    The AST is represented as a dictionary with the following structure:
+    - Literal: {&#39;type&#39;: &#39;Literal&#39;, &#39;value&#39;: value}
+    - BinaryExpression: {&#39;type&#39;: &#39;BinaryExpression&#39;, &#39;operator&#39;: operator, &#39;left&#39;: left_node, &#39;right&#39;: right_node}
+    - UnaryExpression: {&#39;type&#39;: &#39;UnaryExpression&#39;, &#39;operator&#39;: operator, &#39;argument&#39;: operand}
+    - LogicalExpression: {&#39;type&#39;: &#39;LogicalExpression&#39;, &#39;operator&#39;: operator, &#39;left&#39;: left_node, &#39;right&#39;: right_node}
+
+    Args:
+        rpn_tokens (list): A list of tokens in reverse Polish notation (RPN).
+
+    Returns:
+        dict: The root node of the constructed abstract syntax tree (AST).
+    &#34;&#34;&#34;
+    stack = []
+    for token in rpn_tokens:
+        # If token is a number or a variable
+        if token not in precedence and token not in [&#34;==&#34;, &#34;!=&#34;, &#34;&gt;&#34;, &#34;&lt;&#34;, &#34;&gt;=&#34;, &#34;&lt;=&#34;]:
+            stack.append({&#34;type&#34;: &#34;Literal&#34;, &#34;value&#34;: token})
+        else:  # If token is an operator
+            if token in [&#34;==&#34;, &#34;!=&#34;, &#34;&gt;&#34;, &#34;&lt;&#34;, &#34;&gt;=&#34;, &#34;&lt;=&#34;]:  # binary operators
+                right = stack.pop() if stack else None
+                left = stack.pop() if stack else None
+                if right is None or left is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operands for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;BinaryExpression&#34;,
+                             &#34;operator&#34;: token, &#34;left&#34;: left, &#34;right&#34;: right})
+            elif token == &#34;not&#34;:  # unary operator
+                operand = stack.pop() if stack else None
+                if operand is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operand for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;UnaryExpression&#34;,
+                             &#34;operator&#34;: token, &#34;argument&#34;: operand})
+            else:  # &#34;and&#34;, &#34;or&#34; binary operators
+                right = stack.pop() if stack else None
+                left = stack.pop() if stack else None
+                if right is None or left is None:
+                    raise ValueError(
+                        &#39;Malformed expression: insufficient operands for operator {}&#39;.format(token))
+                stack.append({&#34;type&#34;: &#34;LogicalExpression&#34;,
+                             &#34;operator&#34;: token, &#34;left&#34;: left, &#34;right&#34;: right})
+
+    if len(stack) != 1:
+        raise ValueError(
+            &#39;Malformed expression: the final stack contained more than one element&#39;)
+    return stack[0]  # Root of the AST</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.condition.infix_to_rpn"><code class="name flex">
+<span>def <span class="ident">infix_to_rpn</span></span>(<span>tokens)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts an infix expression to reverse Polish notation (RPN).</p>
+<p>This function takes a list of tokens representing an infix expression and converts it to a list of tokens in reverse Polish notation (RPN).
+The conversion is done using the shunting-yard algorithm.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>tokens</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of tokens representing the infix expression.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of tokens in reverse Polish notation (RPN).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def infix_to_rpn(tokens):
+    &#34;&#34;&#34;
+    Converts an infix expression to reverse Polish notation (RPN).
+
+    This function takes a list of tokens representing an infix expression and converts it to a list of tokens in reverse Polish notation (RPN). 
+    The conversion is done using the shunting-yard algorithm.
+
+    Args:
+        tokens (list): A list of tokens representing the infix expression.
+
+    Returns:
+        list: A list of tokens in reverse Polish notation (RPN).
+    &#34;&#34;&#34;
+    output_queue = []
+    operator_stack = []
+    for token in tokens:
+        if token in precedence:  # If token is an operator
+            while (operator_stack and operator_stack[-1] in precedence and
+                   precedence[token] &lt;= precedence[operator_stack[-1]]):
+                output_queue.append(operator_stack.pop())
+            operator_stack.append(token)
+        elif token == &#34;(&#34;:
+            operator_stack.append(token)
+        elif token == &#34;)&#34;:
+            while operator_stack and operator_stack[-1] != &#34;(&#34;:
+                output_queue.append(operator_stack.pop())
+            operator_stack.pop()  # Remove the &#39;(&#39;
+        else:  # If token is a number or a variable
+            output_queue.append(token)
+
+    while operator_stack:  # Pop remaining operators from the stack
+        output_queue.append(operator_stack.pop())
+
+    return output_queue</code></pre>
+</details>
+</dd>
+<dt id="pypowerautomate.actions.condition.tokenizer"><code class="name flex">
+<span>def <span class="ident">tokenizer</span></span>(<span>s)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tokenizes the given string into a list of tokens.</p>
+<p>This function takes a string as input and splits it into a list of tokens based on the following rules:</p>
+<ul>
+<li>Whitespace characters (spaces) are used to split the string into tokens, except within quoted strings.</li>
+<li>Operators (!=, ==, &gt;=, &lt;=, &gt;, &lt;) are treated as separate tokens.</li>
+<li>Parentheses '(' and ')' are treated as separate tokens.</li>
+<li>Quoted strings are treated as a single token, including the quotes.</li>
+<li>Digits, decimal points, and alphanumeric characters (including '-' and '_') are grouped into a single token.</li>
+<li>Keywords ('and', 'or', 'not', 'true', 'false') are treated as separate tokens if they are followed by a non-alphanumeric character or the end of the string.</li>
+<li>Raises a ValueError if an unknown character is encountered or if a quoted string is unterminated.</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>s</code></strong> :&ensp;<code>str</code></dt>
+<dd>The input string to be tokenized.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of tokens extracted from the input string.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tokenizer(s):
+    &#34;&#34;&#34;Tokenizes the given string into a list of tokens.
+
+    This function takes a string as input and splits it into a list of tokens based on the following rules:
+
+    - Whitespace characters (spaces) are used to split the string into tokens, except within quoted strings.
+    - Operators (!=, ==, &gt;=, &lt;=, &gt;, &lt;) are treated as separate tokens.
+    - Parentheses &#39;(&#39; and &#39;)&#39; are treated as separate tokens.
+    - Quoted strings are treated as a single token, including the quotes.
+    - Digits, decimal points, and alphanumeric characters (including &#39;-&#39; and &#39;_&#39;) are grouped into a single token.
+    - Keywords (&#39;and&#39;, &#39;or&#39;, &#39;not&#39;, &#39;true&#39;, &#39;false&#39;) are treated as separate tokens if they are followed by a non-alphanumeric character or the end of the string.
+    - Raises a ValueError if an unknown character is encountered or if a quoted string is unterminated.
+
+    Args:
+        s (str): The input string to be tokenized.
+
+    Returns:
+        list: A list of tokens extracted from the input string.
+    &#34;&#34;&#34;
+    keywords = [&#39;and&#39;, &#39;or&#39;, &#39;not&#39;, &#39;true&#39;, &#39;false&#39;]
+    operators = [&#39;!=&#39;, &#39;==&#39;, &#39;&gt;=&#39;, &#39;&lt;=&#39;, &#39;&gt;&#39;, &#39;&lt;&#39;]
+    tokens = []
+    token = &#39;&#39;
+    i = 0
+
+    while i &lt; len(s):
+        char = s[i]
+
+        if char == &#39; &#39;:
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+        elif char in operators or (i + 1 &lt; len(s) and s[i:i+2] in operators):
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            operator = s[i:i+2] if i + \
+                1 &lt; len(s) and s[i:i+2] in operators else char
+            tokens.append(operator)
+            i += len(operator) - 1
+        elif char in (&#39;(&#39;, &#39;)&#39;):
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            tokens.append(char)
+        elif char == &#39;\&#34;&#39;:
+            if token != &#39;&#39;:
+                tokens.append(token)
+                token = &#39;&#39;
+            end_of_string = s.find(&#39;\&#34;&#39;, i + 1)
+            if end_of_string == -1:
+                raise ValueError(&#34;Unterminated string literal&#34;)
+            token = s[i:end_of_string+1]  # Include the quotes
+            tokens.append(token)
+            token = &#39;&#39;
+            i = end_of_string
+        # Digits and decimal point
+        elif char in (&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;.&#39;):
+            token += char
+        elif char.isalpha() or char in (&#39;-&#39;, &#39;_&#39;):  # Variables and boolean values
+            token += char
+            # If this token is a keyword and is followed by a non-alphanumeric character or end of string, append it
+            if token in keywords and (i + 1 == len(s) or not s[i+1].isalnum()):
+                tokens.append(token)
+                token = &#39;&#39;
+        else:
+            raise ValueError(&#34;Unknown character: &#34; + char)
+
+        i += 1
+    if token != &#39;&#39;:
+        tokens.append(token)
+
+    return tokens</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pypowerautomate.actions.condition.Condition"><code class="flex name class">
+<span>class <span class="ident">Condition</span></span>
+<span>(</span><span>expression: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class for defining condition expressions.</p>
+<p>This class provides a way to define condition expressions and convert them to a JSON-compatible dictionary representation.
+The condition expression is first tokenized, then converted to reverse Polish notation (RPN), and finally an abstract syntax tree (AST) is constructed.
+The <code>export()</code> method returns the dictionary representation of the condition expression.</p>
+<h2 id="example">Example</h2>
+<p>condition = Condition("var2 == false")
+print(condition.export())</p>
+<h1 id="output-expression-equals-variablesvar2-false">Output: {'expression': {'equals': ['@variables('var2')', False]}}</h1>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>The condition expression to be defined.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Condition:
+    &#34;&#34;&#34;
+    A class for defining condition expressions.
+
+    This class provides a way to define condition expressions and convert them to a JSON-compatible dictionary representation.
+    The condition expression is first tokenized, then converted to reverse Polish notation (RPN), and finally an abstract syntax tree (AST) is constructed.
+    The `export()` method returns the dictionary representation of the condition expression.
+
+    Example:
+        condition = Condition(&#34;var2 == false&#34;)
+        print(condition.export())
+        # Output: {&#39;expression&#39;: {&#39;equals&#39;: [&#39;@variables(\&#39;var2\&#39;)&#39;, False]}}
+
+    Args:
+        expression (str): The condition expression to be defined.
+    &#34;&#34;&#34;
+
+    def __init__(self, expression: str) -&gt; None:
+        tokens = tokenizer(expression)
+        rpn_tokens = infix_to_rpn(tokens)
+        self.ast = create_ast(rpn_tokens)
+
+    def export(self) -&gt; Dict:
+        return ast_to_dict(self.ast)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pypowerautomate.actions.condition.Condition.export"><code class="name flex">
+<span>def <span class="ident">export</span></span>(<span>self) ‑> Dict</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export(self) -&gt; Dict:
+    return ast_to_dict(self.ast)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pypowerautomate.actions" href="index.html">pypowerautomate.actions</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.condition.ast_to_dict" href="#pypowerautomate.actions.condition.ast_to_dict">ast_to_dict</a></code></li>
+<li><code><a title="pypowerautomate.actions.condition.create_ast" href="#pypowerautomate.actions.condition.create_ast">create_ast</a></code></li>
+<li><code><a title="pypowerautomate.actions.condition.infix_to_rpn" href="#pypowerautomate.actions.condition.infix_to_rpn">infix_to_rpn</a></code></li>
+<li><code><a title="pypowerautomate.actions.condition.tokenizer" href="#pypowerautomate.actions.condition.tokenizer">tokenizer</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pypowerautomate.actions.condition.Condition" href="#pypowerautomate.actions.condition.Condition">Condition</a></code></h4>
+<ul class="">
+<li><code><a title="pypowerautomate.actions.condition.Condition.export" href="#pypowerautomate.actions.condition.Condition.export">export</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
