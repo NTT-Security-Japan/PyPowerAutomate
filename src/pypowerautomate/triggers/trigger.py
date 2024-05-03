@@ -1,6 +1,15 @@
 from typing import List, Dict
 import uuid
 
+class TriggerInputVariableType:
+    text = {"name": "Text", "type": "string", "hint": "TEXT"}
+    yes_no = {"name": "Yes/No", "type": "boolean", "hint": "BOOLEAN"}
+    file = {"name": "File", "type": "object", "hint": "FILE"}
+    email = {"name": "Email", "type": "string", "hint": "EMAIL", "format": "email"}
+    number = {"name": "Number", "type": "number", "hint": "NUMBER"}
+    date = {"name": "Date", "type": "string", "hint": "DATE", "format": "date"}
+    multi_select = {"name": "Multi-Select", "type": "array", "hint": "TEXT"}
+    dropdown = {"name": "Dropdown", "type": "string", "hint": "TEXT"}
 
 class BaseTrigger:
     """
@@ -148,6 +157,46 @@ class ManualTrigger(BaseTrigger):
         self.type = "Request"
         self.kind = "Button"
         self.inputs = {"schema": {"type": "object", "properties": {}, "required": []}}
+
+    def add_input(self, type: dict, title: str, description: str, required: bool = True, options: list[str] = []):
+        """
+        Adds an input to the manual trigger
+
+        Args:
+            type (dict): The type of variable, defined in TriggerInputVariableType
+            title (str): The title of the input. Must be unique.
+            description (str): The description of the input.
+            required (bool): Sets if the variable is required or not. Optional, Default: True
+            options (list[str]): A list containing options for the input. Only available if type is dropdown or multi_select. Optional, Default: None
+        """
+
+        if title in self.inputs["schema"]["properties"]:
+            raise Exception(f"Title of input must be unique. Duplicate title {title} in trigger {self.trigger_name}")
+
+        self.inputs["schema"]["properties"][title] = {
+            "title": title, 
+            "type": type["type"], 
+            "x-ms-dynamically-added": True,
+            "description": description,
+            "x-ms-content-hint": type["hint"]
+        }
+
+        if "format" in type:
+            self.inputs["schema"]["properties"][title]["format"] = type["format"]
+
+        if len(options) == 0 and (type == TriggerInputVariableType.dropdown or type == TriggerInputVariableType.multi_select):
+            raise Exception(f"Input '{title}' of '{self.trigger_name}' must have options. Is Type {type["name"]}.")
+
+        if type == TriggerInputVariableType.multi_select:
+                self.inputs["schema"]["properties"][title]["items"] = {"enum": options, "type": "string"}
+        elif type == TriggerInputVariableType.dropdown:
+            self.inputs["schema"]["properties"][title]["enum"] = options
+
+        if type == TriggerInputVariableType.file:
+            self.inputs["schema"]["properties"][title]["properties"] = {"name": {"type": "string"},"contentBytes": {"type": "string","format": "byte"}}
+
+        if required:
+            self.inputs["schema"]["required"].append(title)
 
     def export(self):
         """

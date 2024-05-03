@@ -1,1 +1,1 @@
-from .trigger import BaseTrigger, Triggers, ManualTrigger, RecurrenceTrigger
+from .trigger import BaseTrigger, Triggers, ManualTrigger, RecurrenceTrigger, TriggerInputVariableType

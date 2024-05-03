@@ -42,7 +42,7 @@ package = Package("incremental_test",flow)
 package.export_zipfile()
 ```
 
-This example creates manual trigger and 2 actions. Then export the flow as lagacy package(zip file).
+This example creates manual trigger and 2 actions. Then export the flow as legacy package(zip file).
 You can import the flow by uploading `incremental_test.zip` to Power Automate. 
 
 ## Supported Triggers
@@ -55,7 +55,7 @@ You can import the flow by uploading `incremental_test.zip` to Power Automate.
 - Variable
 - Conditionals
 - Loops
-- Data Operetions
+- Data Operations
 - Time
 - HTTP (requires Premium subscription)
 
@@ -92,7 +92,7 @@ We aim to provide all contributors and maintainers with a safe and positive expe
 
 - Respect Each Other: Treat everyone working on the project respectfully, regardless of background.
 
-- Promote Inclusivity: Actively promote inclusivity and welcome diverse perspectives.
+- Promote Inclusively: Actively promote inclusively and welcome diverse perspectives.
 
 - Maintain a Harassment-Free Environment: Avoid any behavior seen as harassment and maintain a harassment-free environment.
 

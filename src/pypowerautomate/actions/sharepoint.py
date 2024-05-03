@@ -711,6 +711,74 @@ class SharepointExtractFolderV2Action(BaseAction):
 
         return d
 
+METHODS = set(["GET", "PUT", "POST", "PATCH", "DELETE"])
+
+class SharepointHTTPRequestAction(BaseAction):
+    """
+    Defines an action to send an HTTP request to Sharepoint. This is different to the other HTTP action as it does not require a premium license, but is only restricted to access Sharepoint sites.
+    """
+
+    connection_host = {
+        "connectionName": "shared_sharepointonline",
+        "operationId": "HttpRequest",
+        "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+    }
+
+    def __init__(self, name: str, dataset: str, method: str, uri: str, headers: dict = None, body: str = None):
+        """
+        Initializes a new Sharepoint HTTP Request with specified parameters.
+
+        Args:
+            name (str): The name of the action.
+            dataset (str): The base URL of the Sharepoint site.
+            method (str): The method of the HTTP request. Can be GET, PUT, POST, PATCH, or DELETE.
+            uri (str): The second part of the URL.
+            headers (dict): The headers to be used with this HTTP request.
+            body (str): The body of the HTTP request.
+        """
+        
+        super().__init__(name)
+        self.type = "OpenApiConnection"
+
+        self.dataset: str = dataset
+
+        if method not in METHODS:
+            raise ValueError("Unsupported method type")
+
+        self.method: str = method
+        self.uri: str = uri
+        self.headers: dict = headers
+        self.body: str = body
+
+    def export(self) -> Dict:
+        """
+        Exports the current state and configuration of the HTTP action in a dictionary format suitable for JSON serialization.
+
+        Returns:
+            Dict: A dictionary containing all the inputs and settings of the HTTP action.
+        """
+
+        inputs = {}
+        parameters = {} 
+
+        parameters["dataset"] = self.dataset
+        parameters["parameters/method"] = self.method
+        parameters["parameters/uri"] = self.uri
+        if self.headers:
+            parameters["parameters/headers"] = self.headers
+        if self.body:
+            parameters["parameters/body"] = self.body
+
+        inputs["host"] = SharepointHTTPRequestAction.connection_host
+        inputs["parameters"] = parameters
+
+        d = {}
+        d["metadata"] = self.metadata
+        d["type"] = self.type
+        d["runAfter"] = self.runafter
+        d["inputs"] = inputs
+
+        return d
 
 class SharepointXxxxxxAction(BaseAction):
     connection_host = {

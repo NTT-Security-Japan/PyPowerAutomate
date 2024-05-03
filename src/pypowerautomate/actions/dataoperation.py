@@ -153,3 +153,32 @@ class JoinAction(BaseAction):
         """
         d = {"metadata": self.metadata, "type": self.type, "runAfter": self.runafter, "inputs": self.inputs}
         return d
+
+
+class ParseJSONAction(BaseAction):
+    """
+    Defines an action to parse JSON based on a given schema
+    """
+    
+    def __init__(self, name: str, content: str, schema: dict):
+        """
+        Initializes a new instance of ParseJSON.
+
+        Args:
+            name (str): The name of the action.
+            content (str): The data to be turned into a JSON object
+            schema (dict): The schema of the expected JSON object
+        """
+        super().__init__(name)
+        self.type = "ParseJSON"
+        self.inputs = {"content": content, "schema": schema}
+
+    def export(self) -> Dict:
+        """
+        Exports the configuration of the ParseJSON for use in a workflow.
+
+        Returns:
+            Dict: A dictionary containing the configuration of this action.
+        """
+        d = {"metadata": self.metadata, "type": self.type, "runAfter": self.runafter, "inputs": self.inputs}
+        return d
