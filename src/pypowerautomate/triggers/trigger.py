@@ -8,6 +8,9 @@ class TriggerInputVariableType:
     email = {"name": "Email", "type": "string", "hint": "EMAIL", "format": "email"}
     number = {"name": "Number", "type": "number", "hint": "NUMBER"}
     date = {"name": "Date", "type": "string", "hint": "DATE", "format": "date"}
+
+    # The following two types aren't directly selectable by the normal input in PowerAutomate
+    # You can see them by selecting the "Text" type and clicking the 3 dots menu
     multi_select = {"name": "Multi-Select", "type": "array", "hint": "TEXT"}
     dropdown = {"name": "Dropdown", "type": "string", "hint": "TEXT"}
 
@@ -166,8 +169,8 @@ class ManualTrigger(BaseTrigger):
             type (dict): The type of variable, defined in TriggerInputVariableType
             title (str): The title of the input. Must be unique.
             description (str): The description of the input.
-            required (bool): Sets if the variable is required or not. Optional, Default: True
-            options (list[str]): A list containing options for the input. Only available if type is dropdown or multi_select. Optional, Default: None
+            required (bool, optional): Sets if the variable is required or not.
+            options (list[str], optional): A list containing options for the input. Only available if type is dropdown or multi_select.
         """
 
         if title in self.inputs["schema"]["properties"]:

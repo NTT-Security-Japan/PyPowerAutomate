@@ -9,6 +9,9 @@ precedence = {
     "<": 4,
     ">=": 4,
     "<=": 4,
+    "contains": 4,
+    "startswith": 4,
+    "endswith": 4,
     "not": 3,
     "and": 2,
     "or": 1
@@ -21,6 +24,9 @@ operator_mapping = {
     "<=": "lessOrEquals",
     ">": "greater",
     "<": "less",
+    "contains": "contains",
+    "startswith": "startsWith",
+    "endswith": "endsWith",
     "and": "and",
     "or": "or",
     "not": "not",
@@ -78,7 +84,7 @@ def tokenizer(s):
     Returns:
         list: A list of tokens extracted from the input string.
     """
-    keywords = ['and', 'or', 'not', 'true', 'false']
+    keywords = ['and', 'or', 'not', 'true', 'false', "contains", "startswith", "endswith"]
     operators = ['!=', '==', '>=', '<=', '>', '<']
     tokens = []
     token = ''
@@ -193,10 +199,10 @@ def create_ast(rpn_tokens):
     stack = []
     for token in rpn_tokens:
         # If token is a number or a variable
-        if token not in precedence and token not in ["==", "!=", ">", "<", ">=", "<="]:
+        if token not in precedence and token not in ["==", "!=", ">", "<", ">=", "<=", "contains", "startswith", "endswith"]:
             stack.append({"type": "Literal", "value": token})
         else:  # If token is an operator
-            if token in ["==", "!=", ">", "<", ">=", "<="]:  # binary operators
+            if token in ["==", "!=", ">", "<", ">=", "<=", "contains", "startswith", "endswith"]:  # binary operators
                 right = stack.pop() if stack else None
                 left = stack.pop() if stack else None
                 if right is None or left is None:

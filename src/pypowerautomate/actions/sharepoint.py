@@ -733,8 +733,8 @@ class SharepointHTTPRequestAction(BaseAction):
             dataset (str): The base URL of the Sharepoint site.
             method (str): The method of the HTTP request. Can be GET, PUT, POST, PATCH, or DELETE.
             uri (str): The second part of the URL.
-            headers (dict): The headers to be used with this HTTP request.
-            body (str): The body of the HTTP request.
+            headers (dict, optional): The headers to be used with this HTTP request.
+            body (str, optional): The body of the HTTP request.
         """
         
         super().__init__(name)

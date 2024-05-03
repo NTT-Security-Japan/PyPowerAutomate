@@ -50,8 +50,15 @@ class IfStatement(BaseAction):
         d["type"] = self.type
         d["runAfter"] = self.runafter
         d["expression"] = self.condition.export()
-        d["actions"] = self.true_actions.export()
-        d["else"] = {"actions": self.false_actions.export()}
+
+        if self.true_actions:
+            d["actions"] = self.true_actions.export()
+        else:
+            d["actions"] = {}
+
+        if self.false_actions:
+            d["else"] = {"actions": self.false_actions.export()}
+
         return d
 
 
